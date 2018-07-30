@@ -1,0 +1,13 @@
+{
+    "name": "fighttheice/console",
+    "description": "PHP Console Application Framework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "William Knauss",
+            "email": "william.knauss@kingdom.com"
+        }
+    ],
+    "require": {}
+}
