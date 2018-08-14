@@ -11,7 +11,8 @@
     ],
     "require": {
         "illuminate/console": "^5.4",
-        "webmozart/assert": "^1.3"
+        "webmozart/assert": "^1.3",
+        "symfony/event-dispatcher": "^3.4"
     },
     "require-dev": {
         "illuminate/container": "^5.4"

@@ -3,6 +3,7 @@
 namespace FightTheIce\Console;
 
 use Symfony\Component\Console\Application as S_Application;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 use Webmozart\Assert\Assert;
 
 class Application extends S_Application
@@ -27,6 +28,15 @@ class Application extends S_Application
     protected $containerSet = false;
 
     /**
+     * dispatcher
+     * Event Dispatcher
+     *
+     * @access protected
+     * @var null
+     */
+    protected $dispatcher = null;
+
+    /**
      * __construct
      * Class construct
      *
@@ -35,7 +45,7 @@ class Application extends S_Application
      * @param string $version   Version of the console application
      * @param mixed  $container Container object
      */
-    public function __construct($name = 'UNKNOWN', $version = 'UNKNOWN', $container = null)
+    public function __construct($name = 'UNKNOWN', $version = 'UNKNOWN', $container = null, $useEvents = true)
     {
         //make sure the name is a string
         Assert::string($name);
@@ -50,6 +60,36 @@ class Application extends S_Application
 
         //now call the parent construct
         parent::__construct($name, $version);
+
+        //should we fire events?
+        if ($useEvents == true) {
+            $this->dispatcher = new EventDispatcher();
+            $this->setDispatcher($this->dispatcher);
+        }
+    }
+
+    /**
+     * getDispatcher
+     * Return the dispatcher if one is set otherwise it
+     * throws an exception
+     *
+     * @access public
+     * @return Symfony\Component\EventDispatcher\EventDispatcher
+     */
+    public function getDispatcher()
+    {
+        return $this->dispatcher;
+    }
+
+    /**
+     * setDispatcher
+     * @param [type] $dispatcher [description]
+     */
+    public function setDispatcherObj($dispatcher)
+    {
+        $this->dispatcher = $dispatcher;
+
+        return $this;
     }
 
     /**
