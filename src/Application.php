@@ -82,17 +82,6 @@ class Application extends S_Application
     }
 
     /**
-     * setDispatcher
-     * @param [type] $dispatcher [description]
-     */
-    public function setDispatcherObj($dispatcher)
-    {
-        $this->dispatcher = $dispatcher;
-
-        return $this;
-    }
-
-    /**
      * getContainer
      * Returns the container object if one is set
      * otherwise it will throw an exception
