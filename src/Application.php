@@ -54,18 +54,13 @@ class Application extends S_Application
      * @param string $version   Version of the console application
      * @param mixed  $container Container object
      */
-    public function __construct($name = 'UNKNOWN', $version = 'UNKNOWN', $container = null, $useEvents = true)
+    public function __construct($name = 'UNKNOWN', $version = 'UNKNOWN', $useEvents = true)
     {
         //make sure the name is a string
         Assert::string($name);
 
         //make sure the version is a string
         Assert::string($version);
-
-        //if our container object is not null then lets set it
-        if (null !== $container) {
-            $this->setContainer($container);
-        }
 
         //now call the parent construct
         parent::__construct($name, $version);
@@ -116,6 +111,7 @@ class Application extends S_Application
      */
     public function setContainer($container)
     {
+        Assert::implementsInterface($container, 'Psr\Container\ContainerInterface');
         //is there an actual container set already
         //if so throw an exception
         if ($this->containerSet == true) {
@@ -139,6 +135,7 @@ class Application extends S_Application
 
     public function setMonolog($logger)
     {
+        Assert::isInstanceOf($logger, 'Monolog\Logger');
         $this->monolog = $logger;
 
         return $this;
