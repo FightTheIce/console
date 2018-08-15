@@ -37,6 +37,15 @@ class Application extends S_Application
     protected $dispatcher = null;
 
     /**
+     * Monolog
+     * Monologger
+     *
+     * @access protected
+     * @var null
+     */
+    protected $monolog = null;
+
+    /**
      * __construct
      * Class construct
      *
@@ -120,6 +129,18 @@ class Application extends S_Application
         $this->containerSet = true;
 
         //return this
+        return $this;
+    }
+
+    public function getMonolog()
+    {
+        return $this->monolog;
+    }
+
+    public function setMonolog($logger)
+    {
+        $this->monolog = $logger;
+
         return $this;
     }
 }

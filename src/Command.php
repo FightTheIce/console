@@ -27,6 +27,8 @@ class Command extends I_Command
      */
     protected $enabled = true;
 
+    protected $screen = null;
+
     /**
      * Execute the console command.
      *
@@ -36,6 +38,10 @@ class Command extends I_Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $this->screen = new Screen($input, $output, $this->getApplication()->getMonolog());
+        $this->screen->writeToMonologOnly($this->signature);
+        $this->screen->writeToMonologOnly(implode($_SERVER['argv']));
+
         //variable to hold the method name
         $method = '';
 

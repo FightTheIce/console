@@ -12,10 +12,13 @@
     "require": {
         "illuminate/console": "^5.4",
         "webmozart/assert": "^1.3",
-        "symfony/event-dispatcher": "^3.4"
+        "symfony/event-dispatcher": "^3.4",
+        "illuminate/container": "^5.4"
     },
     "require-dev": {
-        "illuminate/container": "^5.4"
+    },
+    "suggest": {
+        "monolog/monolog": "Allows more advanced logging of the application flow"
     },
     "autoload": {
         "psr-4": {
