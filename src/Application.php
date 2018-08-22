@@ -2,142 +2,112 @@
 
 namespace FightTheIce\Console;
 
+use Illuminate\Console\Application as I_Application;
+use Illuminate\Container\Container as IlluminateContainer;
+use Illuminate\Contracts\Container\Container;
+use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Events\Dispatcher as IlluminateDispatcher;
 use Symfony\Component\Console\Application as S_Application;
+use Symfony\Component\Console\ConsoleEvents;
+use Symfony\Component\Console\Event\ConsoleErrorEvent;
+use Symfony\Component\Console\Event\ConsoleTerminateEvent;
 use Symfony\Component\EventDispatcher\EventDispatcher;
-use Webmozart\Assert\Assert;
 
-class Application extends S_Application
+class Application extends I_Application
 {
-    /**
-     * container
-     * The container object
-     *
-     * @access protected
-     * @var null
-     */
-    protected $container = null;
-
-    /**
-     * containerSet
-     * A boolean value to determine if the container
-     * object has been set
-     *
-     * @access protected
-     * @var boolean
-     */
-    protected $containerSet = false;
-
-    /**
-     * dispatcher
-     * Event Dispatcher
-     *
-     * @access protected
-     * @var null
-     */
+    protected $events     = null;
     protected $dispatcher = null;
-
-    /**
-     * Monolog
-     * Monologger
-     *
-     * @access protected
-     * @var null
-     */
-    protected $monolog = null;
 
     /**
      * __construct
      * Class construct
+     * Sets the application name, and version
      *
      * @access public
-     * @param string $name      Name of the console application
-     * @param string $version   Version of the console application
-     * @param mixed  $container Container object
+     * @param string $name
+     * @param string $version
      */
-    public function __construct($name = 'UNKNOWN', $version = 'UNKNOWN', $useEvents = true)
+    public function __construct($name = 'UNKNOWN', $version = 'UNKNOWN', Container $container = null, Dispatcher $events = null)
     {
-        //make sure the name is a string
-        Assert::string($name);
-
-        //make sure the version is a string
-        Assert::string($version);
-
-        //now call the parent construct
-        parent::__construct($name, $version);
-
-        //should we fire events?
-        if ($useEvents == true) {
-            $this->dispatcher = new EventDispatcher();
-            $this->setDispatcher($this->dispatcher);
+        if (is_null($container)) {
+            $container = new IlluminateContainer;
         }
+
+        if (is_null($events)) {
+            $events = new IlluminateDispatcher($container);
+        }
+
+        $this->events = $events;
+
+        S_Application::__construct($name, $version);
+
+        $this->laravel = $container;
+        $this->setAutoExit(false);
+        $this->setCatchExceptions(false);
+
+        $events->dispatch(new Events\ArtisanStarting($this));
+
+        $this->bootstrap();
+
+        $this->dispatcher = new EventDispatcher();
+        $this->setDispatcher($this->dispatcher);
+        $this->setupSymfonyEvents();
     }
 
-    /**
-     * getDispatcher
-     * Return the dispatcher if one is set otherwise it
-     * throws an exception
-     *
-     * @access public
-     * @return Symfony\Component\EventDispatcher\EventDispatcher
-     */
-    public function getDispatcher()
+    protected function setupSymfonyEvents()
     {
-        return $this->dispatcher;
+        /*
+        Typical Purposes: Handle exceptions thrown during the execution of a command.
+
+        Whenever an exception is thrown by a command, including those triggered from event listeners, the ConsoleEvents::ERROR event is dispatched. A listener can wrap or change the exception or do anything useful before the exception is thrown by the application.
+         */
+        $this->dispatcher->addListener(ConsoleEvents::ERROR, function (ConsoleErrorEvent $event) {
+            // gets the input instance
+            $input = $event->getInput();
+
+            // gets the output instance
+            $output = $event->getOutput();
+
+            // gets the command to be executed
+            $command = $event->getCommand();
+
+            if ($command instanceof \FightTheIce\Console\Command) {
+                if ($command->shouldUseEvents() == true) {
+                    $command->getApplication()->getEvents()->dispatch(new Events\Error($event, $input, $output, $command));
+                }
+            }
+        });
+
+        /*
+        Typical Purposes: To perform some cleanup actions after the command has been executed.
+
+        After the command has been executed, the ConsoleEvents::TERMINATE event is dispatched. It can be used to do any actions that need to be executed for all commands or to cleanup what you initiated in a ConsoleEvents::COMMAND listener (like sending logs, closing a database connection, sending emails, ...). A listener might also change the exit code.
+         */
+        $this->dispatcher->addListener(ConsoleEvents::TERMINATE, function (ConsoleTerminateEvent $event) {
+            // gets the input instance
+            $input = $event->getInput();
+
+            // gets the output instance
+            $output = $event->getOutput();
+
+            // gets the command to be executed
+            $command = $event->getCommand();
+
+            if ($command instanceof \FightTheIce\Console\Command) {
+                if ($command->shouldUseEvents() == true) {
+                    $command->getApplication()->getEvents()->dispatch(new Events\Terminate($event, $input, $output, $command));
+                }
+            }
+        });
     }
 
-    /**
-     * getContainer
-     * Returns the container object if one is set
-     * otherwise it will throw an exception
-     *
-     * @access public
-     * @return mixed
-     */
     public function getContainer()
     {
-        if (null == $this->container) {
-            throw new \ErrorException('The container object is not set!');
-        }
-
-        return $this->container;
+        return $this->getLaravel();
     }
 
-    /**
-     * setContainer
-     * Set the container object
-     *
-     * @access public
-     * @param mixed $container
-     */
-    public function setContainer($container)
+    public function getEvents()
     {
-        Assert::implementsInterface($container, 'Psr\Container\ContainerInterface');
-        //is there an actual container set already
-        //if so throw an exception
-        if ($this->containerSet == true) {
-            throw new \ErrorException('The container has already been set');
-        }
-
-        //set the container object
-        $this->container = $container;
-
-        //set the containerSet property to true
-        $this->containerSet = true;
-
-        //return this
-        return $this;
-    }
-
-    public function getMonolog()
-    {
-        return $this->monolog;
-    }
-
-    public function setMonolog($logger)
-    {
-        Assert::isInstanceOf($logger, 'Monolog\Logger');
-        $this->monolog = $logger;
-
-        return $this;
+        return $this->events;
     }
 }

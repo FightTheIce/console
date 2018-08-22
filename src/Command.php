@@ -2,101 +2,40 @@
 
 namespace FightTheIce\Console;
 
+use FightTheIce\Console\Events\AfterCommand;
+use FightTheIce\Console\Events\BeforeCommand;
 use Illuminate\Console\Command as I_Command;
+use Illuminate\Contracts\Support\Arrayable;
+use Symfony\Component\Console\Formatter\OutputFormatterStyle;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Console\Question\Question;
 
 class Command extends I_Command
 {
-    /**
-     * IO
-     * Additional Input/Output features
-     *
-     * @access protected
-     * @var null
-     */
-    protected $io = null;
+    protected $enabled   = true;
+    protected $useEvents = true;
+    private $definition;
 
     /**
-     * Enabled
-     * Is this command enabled
+     * Write a string as error output.
      *
-     * @access protected
-     * @var boolean
+     * @param  string  $string
+     * @param  null|int|string  $verbosity
+     * @return void
      */
-    protected $enabled = true;
-
-    protected $screen = null;
-
-    /**
-     * Execute the console command.
-     *
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     * @return mixed
-     */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    public function errorExit($message, $exit = false)
     {
-        $this->screen = new Screen($input, $output, $this->getApplication()->getMonolog());
-        $this->screen->writeToMonologOnly($this->signature);
-        $this->screen->writeToMonologOnly(implode($_SERVER['argv']));
+        $this->output->writeln('<error>' . $message . '</error>', $this->parseVerbosity(null));
 
-        //variable to hold the method name
-        $method = '';
-
-        //does the handle method exists?
-        if (method_exists($this, 'handle')) {
-            //yes the handle method exists
-            $method = 'handle';
-        } elseif (method_exists($this, 'fire')) {
-            //the fire method exists
-            $method = 'fire';
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\ErrorExit($message, $exit, $this));
         }
 
-        //if we have a method lets try to execute it
-        if (!empty($method)) {
-            //return the executed method
-            return call_user_func_array(array($this, $method), array());
-        } else {
-            //error out if we don't have a method
-            $this->errorExit('Unable to find execution [handle, or fire] method!');
+        if ($exit == true) {
+            exit;
         }
-    }
-
-    /**
-     * errorExit
-     * Show an error message and exit
-     *
-     * @access public
-     * @param  string $message - A string containing the
-     */
-    public function errorExit($message = null)
-    {
-        //show a nice error message
-        $this->error($message);
-
-        //exit the script
-        exit;
-    }
-
-    /**
-     * run
-     * Before we run our command logic lets try to setup some additional properties
-     *
-     * @access public
-     * @param  InputInterface  $input
-     * @param  OutputInterface $output
-     */
-    public function run(InputInterface $input, OutputInterface $output)
-    {
-        //setup the additional input/output style stuff
-        $this->io = new SymfonyStyle($input, $output);
-
-        #@TODO: add a title
-
-        //run the parent
-        parent::run($input, $output);
     }
 
     /**
@@ -106,9 +45,13 @@ class Command extends I_Command
      * @access public
      * @param  string $title
      */
-    public function title($title = '')
+    public function title($message)
     {
-        $this->io->title($title);
+        $this->output->title($message);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Title($message, $this));
+        }
     }
 
     /**
@@ -116,9 +59,13 @@ class Command extends I_Command
      * Setup section text
      * @param  string $text
      */
-    public function section($text = '')
+    public function section($message)
     {
-        $this->io->section($text);
+        $this->output->section($message);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Section($message, $this));
+        }
     }
 
     /**
@@ -130,7 +77,11 @@ class Command extends I_Command
      */
     public function text($message)
     {
-        $this->io->text($message);
+        $this->output->text($message);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Text($message, $this));
+        }
     }
 
     /**
@@ -140,9 +91,13 @@ class Command extends I_Command
      * @access public
      * @param  string $message
      */
-    public function listing($message)
+    public function listing(array $elements)
     {
-        $this->io->listing($message);
+        $this->output->listing($elements);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Listing($elements, $this));
+        }
     }
 
     /**
@@ -151,9 +106,13 @@ class Command extends I_Command
      *
      * @access public
      */
-    public function newLine()
+    public function newLine($count = 1)
     {
-        $this->io->newLine();
+        $this->output->newLine($count);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\NewLine($count, $this));
+        }
     }
 
     /**
@@ -165,7 +124,11 @@ class Command extends I_Command
      */
     public function note($message)
     {
-        $this->io->note($message);
+        $this->output->note($message);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Note($message, $this));
+        }
     }
 
     /**
@@ -177,7 +140,11 @@ class Command extends I_Command
      */
     public function caution($message)
     {
-        $this->io->caution($message);
+        $this->output->caution($message);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Caution($message, $this));
+        }
     }
 
     /**
@@ -189,7 +156,11 @@ class Command extends I_Command
      */
     public function success($message)
     {
-        $this->io->success($message);
+        $this->output->success($message);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Success($message, $this));
+        }
     }
 
     /**
@@ -201,7 +172,11 @@ class Command extends I_Command
      */
     public function warning($message)
     {
-        $this->io->warning($message);
+        $this->output->warning($message);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Warning($message, $this));
+        }
     }
 
     /**
@@ -217,26 +192,310 @@ class Command extends I_Command
     }
 
     /**
-     * getContainer
-     * Return the base container from the console application
+     * Confirm a question with the user.
      *
-     * @access public
-     * @return Illuminate\Container\Container
+     * @param  string  $question
+     * @param  bool    $default
+     * @return bool
      */
-    public function getContainer()
+    public function confirm($question, $default = false)
     {
-        return $this->getApplication()->getContainer();
+        $confirm = parent::confirm($question, $default);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Confirm($question, $default, $confirm, $this));
+        }
+
+        return $confirm;
     }
 
     /**
-     * newProgressBar
-     * Return a new progress bar
+     * Prompt the user for input.
      *
-     * @access public
-     * @param  int $int - An integer defining the number of steps in the progress bar
+     * @param  string  $question
+     * @param  string  $default
+     * @return string
      */
-    public function newProgressBar($int)
+    public function ask($question, $default = null)
     {
-        return $this->output->createProgressBar($int);
+        $ask = parent::ask($question, $default);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Ask($question, $default, $ask, $this));
+        }
+
+        return $ask;
+    }
+
+    /**
+     * Prompt the user for input with auto completion.
+     *
+     * @param  string  $question
+     * @param  array   $choices
+     * @param  string  $default
+     * @return string
+     */
+    public function anticipate($question, array $choices, $default = null)
+    {
+        $anticipate = parent::askWithCompletion($question, $choices, $default);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Anticipate($question, $choices, $default, $anticipate, $this));
+        }
+
+        return $anticipate;
+    }
+
+    /**
+     * Prompt the user for input with auto completion.
+     *
+     * @param  string  $question
+     * @param  array   $choices
+     * @param  string  $default
+     * @return string
+     */
+    public function askWithCompletion($question, array $choices, $default = null)
+    {
+        $askWithCompletion = parent::askWithCompletion($question, $choices, $default);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\AskWithCompletion($question, $choices, $default, $askWithCompletion, $this));
+        }
+
+        return $askWithCompletion;
+    }
+
+    /**
+     * Prompt the user for input but hide the answer from the console.
+     *
+     * @param  string  $question
+     * @param  bool    $fallback
+     * @return string
+     */
+    public function secret($question, $fallback = true)
+    {
+        $secret = parent::secret($question, $fallback);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Secret($question, $fallback, $secret, $this));
+        }
+
+        return $secret;
+    }
+
+    /**
+     * Give the user a single choice from an array of answers.
+     *
+     * @param  string  $question
+     * @param  array   $choices
+     * @param  string  $default
+     * @param  mixed   $attempts
+     * @param  bool    $multiple
+     * @return string
+     */
+    public function choice($question, array $choices, $default = null, $attempts = null, $multiple = null)
+    {
+        $choice = parent::choice($question, $choices, $default, $attempts, $multiple);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Choice($question, $choices, $default, $attempts, $multiple, $choice, $this));
+        }
+
+        return $choice;
+    }
+
+    /**
+     * Format input to textual table.
+     *
+     * @param  array   $headers
+     * @param  \Illuminate\Contracts\Support\Arrayable|array  $rows
+     * @param  string  $style
+     * @return void
+     */
+    public function table(array $headers, $rows, $style = 'default')
+    {
+        parent::table($headers, $rows, $style);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Table($headers, $rows, $style, $this));
+        }
+    }
+
+    /**
+     * Write a string as information output.
+     *
+     * @param  string  $string
+     * @param  null|int|string  $verbosity
+     * @return void
+     */
+    public function info($string, $verbosity = null)
+    {
+        parent::line($string, $verbosity);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Info($string, $verbosity, $this));
+        }
+    }
+
+    /**
+     * Write a string as standard output.
+     *
+     * @param  string  $string
+     * @param  string  $style
+     * @param  null|int|string  $verbosity
+     * @return void
+     */
+    public function line($string, $style = null, $verbosity = null)
+    {
+        parent::line($string, $style, $verbosity);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Line($string, $style, $verbosity, $this));
+        }
+    }
+
+    /**
+     * Write a string as comment output.
+     *
+     * @param  string  $string
+     * @param  null|int|string  $verbosity
+     * @return void
+     */
+    public function comment($string, $verbosity = null)
+    {
+        parent::line($string, 'comment', $verbosity);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Comment($string, $verbosity, $this));
+        }
+    }
+
+    /**
+     * Write a string as question output.
+     *
+     * @param  string  $string
+     * @param  null|int|string  $verbosity
+     * @return void
+     */
+    public function question($string, $verbosity = null)
+    {
+        parent::line($string, 'question', $verbosity);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Question($string, $verbosity, $this));
+        }
+    }
+
+    /**
+     * Write a string as error output.
+     *
+     * @param  string  $string
+     * @param  null|int|string  $verbosity
+     * @return void
+     */
+    public function error($string, $verbosity = null)
+    {
+        parent::line($string, 'error', $verbosity);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Error($string, $verbosity, $this));
+        }
+    }
+
+    /**
+     * Write a string as warning output.
+     *
+     * @param  string  $string
+     * @param  null|int|string  $verbosity
+     * @return void
+     */
+    public function warn($string, $verbosity = null)
+    {
+        if (!$this->output->getFormatter()->hasStyle('warning')) {
+            $style = new OutputFormatterStyle('yellow');
+
+            $this->output->getFormatter()->setStyle('warning', $style);
+        }
+
+        parent::line($string, 'warning', $verbosity);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Warn($string, $verbosity, $this));
+        }
+    }
+
+    /**
+     * Write a string in an alert box.
+     *
+     * @param  string  $string
+     * @return void
+     */
+    public function alert($string)
+    {
+        parent::line(str_repeat('*', strlen($string) + 12), 'comment');
+        parent::line('*     ' . $string . '     *');
+        parent::line(str_repeat('*', strlen($string) + 12));
+        $this->output->writeln('');
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Alert($string, $this));
+        }
+    }
+
+    public function shouldUseEvents()
+    {
+        if (method_exists($this, 'useEvents') == true) {
+            $val = $this->useEvents();
+
+            if (is_bool($val)) {
+                return $val;
+            } else {
+                if (is_bool($this->useEvents)) {
+                    return $this->useEvents;
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        if (is_bool($this->useEvents)) {
+            return $this->useEvents;
+        }
+
+        return false;
+    }
+
+    public function setUseEvents($val)
+    {
+        if (is_bool($val)) {
+            $this->useEvents = $val;
+        }
+
+        return $this;
+    }
+
+    /**
+     * Run the console command.
+     *
+     * @param  \Symfony\Component\Console\Input\InputInterface  $input
+     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
+     * @return int
+     */
+    public function run(InputInterface $input, OutputInterface $output)
+    {
+        $this->input  = $input;
+        $this->output = $output;
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new BeforeCommand($this->input, $this->output, $this));
+        }
+
+        $value = parent::run($this->input, $this->output);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new AfterCommand($this->input, $this->output, $this));
+        }
+
+        return $value;
     }
 }

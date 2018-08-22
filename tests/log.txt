@@ -1,0 +1,50 @@
+[hello]  - ErrorExit
+
+[hello]  - Title
+
+[hello]  - Section
+
+[hello]  - Text
+
+
+
+[hello]  - Note
+
+[hello]  - Caution
+
+
+[hello]  - Warning
+
+[hello]  - Confirm
+    ANSWER: [1]
+
+[hello]  - Ask
+    ANSWER: [Ask]
+
+[hello]  - Anticipate
+    ANSWER: [Anticipate]
+
+[hello]  - Ask With Completion
+    ANSWER: [AskWithCompletion]
+
+[hello]  - Secret
+    ANSWER: []
+
+[hello]  - Choice
+    ANSWER: [Choice1]
+
+
+[hello]  - Info
+
+[hello]  - Line
+
+[hello]  - Comment
+
+[hello]  - Question
+
+[hello]  - Error
+
+[hello]  - Warn
+
+[hello]  - Alert
+

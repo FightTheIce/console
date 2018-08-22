@@ -1,0 +1,1705 @@
+Array
+(
+    [0] => FightTheIce\Console\Events\Output\Info Object
+        (
+            [string] => Info
+            [verbosity] => 
+            [command] => Hello Object
+                (
+                    [signature:protected] => hello
+                    [enabled:protected] => 1
+                    [useEvents:protected] => 1
+                    [laravel:protected] => Illuminate\Container\Container Object
+                        (
+                            [resolved:protected] => Array
+                                (
+                                    [Hello] => 1
+                                )
+
+                            [bindings:protected] => Array
+                                (
+                                )
+
+                            [methodBindings:protected] => Array
+                                (
+                                )
+
+                            [instances:protected] => Array
+                                (
+                                )
+
+                            [aliases:protected] => Array
+                                (
+                                )
+
+                            [abstractAliases:protected] => Array
+                                (
+                                )
+
+                            [extenders:protected] => Array
+                                (
+                                )
+
+                            [tags:protected] => Array
+                                (
+                                )
+
+                            [buildStack:protected] => Array
+                                (
+                                )
+
+                            [with:protected] => Array
+                                (
+                                )
+
+                            [contextual] => Array
+                                (
+                                )
+
+                            [reboundCallbacks:protected] => Array
+                                (
+                                )
+
+                            [globalResolvingCallbacks:protected] => Array
+                                (
+                                )
+
+                            [globalAfterResolvingCallbacks:protected] => Array
+                                (
+                                )
+
+                            [resolvingCallbacks:protected] => Array
+                                (
+                                )
+
+                            [afterResolvingCallbacks:protected] => Array
+                                (
+                                )
+
+                        )
+
+                    [input:protected] => Symfony\Component\Console\Input\ArgvInput Object
+                        (
+                            [tokens:Symfony\Component\Console\Input\ArgvInput:private] => Array
+                                (
+                                    [0] => hello
+                                    [1] => --quiet
+                                )
+
+                            [parsed:Symfony\Component\Console\Input\ArgvInput:private] => Array
+                                (
+                                )
+
+                            [definition:protected] => Symfony\Component\Console\Input\InputDefinition Object
+                                (
+                                    [arguments:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                        (
+                                            [command] => Symfony\Component\Console\Input\InputArgument Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputArgument:private] => command
+                                                    [mode:Symfony\Component\Console\Input\InputArgument:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputArgument:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputArgument:private] => The command to execute
+                                                )
+
+                                        )
+
+                                    [requiredCount:Symfony\Component\Console\Input\InputDefinition:private] => 1
+                                    [hasAnArrayArgument:Symfony\Component\Console\Input\InputDefinition:private] => 
+                                    [hasOptional:Symfony\Component\Console\Input\InputDefinition:private] => 
+                                    [options:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                        (
+                                            [help] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => help
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => h
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => Display this help message
+                                                )
+
+                                            [quiet] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => quiet
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => q
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => Do not output any message
+                                                )
+
+                                            [verbose] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => verbose
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => v|vv|vvv
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+                                                )
+
+                                            [version] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => version
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => V
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => Display this application version
+                                                )
+
+                                            [ansi] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => ansi
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => Force ANSI output
+                                                )
+
+                                            [no-ansi] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => no-ansi
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => Disable ANSI output
+                                                )
+
+                                            [no-interaction] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => no-interaction
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => n
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => Do not ask any interactive question
+                                                )
+
+                                            [env] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => env
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 4
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => The environment the command should run under
+                                                )
+
+                                        )
+
+                                    [shortcuts:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                        (
+                                            [h] => help
+                                            [q] => quiet
+                                            [v] => verbose
+                                            [vv] => verbose
+                                            [vvv] => verbose
+                                            [V] => version
+                                            [n] => no-interaction
+                                        )
+
+                                )
+
+                            [stream:protected] => 
+                            [options:protected] => Array
+                                (
+                                    [quiet] => 1
+                                )
+
+                            [arguments:protected] => Array
+                                (
+                                    [command] => hello
+                                )
+
+                            [interactive:protected] => 
+                        )
+
+                    [output:protected] => Illuminate\Console\OutputStyle Object
+                        (
+                            [output:Illuminate\Console\OutputStyle:private] => Symfony\Component\Console\Output\ConsoleOutput Object
+                                (
+                                    [stderr:Symfony\Component\Console\Output\ConsoleOutput:private] => Symfony\Component\Console\Output\StreamOutput Object
+                                        (
+                                            [stream:Symfony\Component\Console\Output\StreamOutput:private] => Resource id #62
+                                            [verbosity:Symfony\Component\Console\Output\Output:private] => 16
+                                            [formatter:Symfony\Component\Console\Output\Output:private] => Symfony\Component\Console\Formatter\OutputFormatter Object
+                                                (
+                                                    [decorated:Symfony\Component\Console\Formatter\OutputFormatter:private] => 1
+                                                    [styles:Symfony\Component\Console\Formatter\OutputFormatter:private] => Array
+                                                        (
+                                                            [error] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                                (
+                                                                    [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                            [set] => 37
+                                                                            [unset] => 39
+                                                                        )
+
+                                                                    [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                            [set] => 41
+                                                                            [unset] => 49
+                                                                        )
+
+                                                                    [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                        )
+
+                                                                )
+
+                                                            [info] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                                (
+                                                                    [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                            [set] => 32
+                                                                            [unset] => 39
+                                                                        )
+
+                                                                    [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                                    [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                        )
+
+                                                                )
+
+                                                            [comment] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                                (
+                                                                    [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                            [set] => 33
+                                                                            [unset] => 39
+                                                                        )
+
+                                                                    [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                                    [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                        )
+
+                                                                )
+
+                                                            [question] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                                (
+                                                                    [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                            [set] => 30
+                                                                            [unset] => 39
+                                                                        )
+
+                                                                    [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                            [set] => 46
+                                                                            [unset] => 49
+                                                                        )
+
+                                                                    [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [styleStack:Symfony\Component\Console\Formatter\OutputFormatter:private] => Symfony\Component\Console\Formatter\OutputFormatterStyleStack Object
+                                                        (
+                                                            [styles:Symfony\Component\Console\Formatter\OutputFormatterStyleStack:private] => Array
+                                                                (
+                                                                )
+
+                                                            [emptyStyle:Symfony\Component\Console\Formatter\OutputFormatterStyleStack:private] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                                (
+                                                                    [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                                    [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                                    [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                    [stream:Symfony\Component\Console\Output\StreamOutput:private] => Resource id #56
+                                    [verbosity:Symfony\Component\Console\Output\Output:private] => 16
+                                    [formatter:Symfony\Component\Console\Output\Output:private] => Symfony\Component\Console\Formatter\OutputFormatter Object
+                                        (
+                                            [decorated:Symfony\Component\Console\Formatter\OutputFormatter:private] => 1
+                                            [styles:Symfony\Component\Console\Formatter\OutputFormatter:private] => Array
+                                                (
+                                                    [error] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                        (
+                                                            [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 37
+                                                                    [unset] => 39
+                                                                )
+
+                                                            [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 41
+                                                                    [unset] => 49
+                                                                )
+
+                                                            [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                )
+
+                                                        )
+
+                                                    [info] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                        (
+                                                            [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 32
+                                                                    [unset] => 39
+                                                                )
+
+                                                            [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                            [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                )
+
+                                                        )
+
+                                                    [comment] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                        (
+                                                            [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 33
+                                                                    [unset] => 39
+                                                                )
+
+                                                            [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                            [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                )
+
+                                                        )
+
+                                                    [question] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                        (
+                                                            [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 30
+                                                                    [unset] => 39
+                                                                )
+
+                                                            [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 46
+                                                                    [unset] => 49
+                                                                )
+
+                                                            [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [styleStack:Symfony\Component\Console\Formatter\OutputFormatter:private] => Symfony\Component\Console\Formatter\OutputFormatterStyleStack Object
+                                                (
+                                                    [styles:Symfony\Component\Console\Formatter\OutputFormatterStyleStack:private] => Array
+                                                        (
+                                                        )
+
+                                                    [emptyStyle:Symfony\Component\Console\Formatter\OutputFormatterStyleStack:private] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                        (
+                                                            [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                            [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                            [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [input:Symfony\Component\Console\Style\SymfonyStyle:private] => Symfony\Component\Console\Input\ArgvInput Object
+                                (
+                                    [tokens:Symfony\Component\Console\Input\ArgvInput:private] => Array
+                                        (
+                                            [0] => hello
+                                            [1] => --quiet
+                                        )
+
+                                    [parsed:Symfony\Component\Console\Input\ArgvInput:private] => Array
+                                        (
+                                        )
+
+                                    [definition:protected] => Symfony\Component\Console\Input\InputDefinition Object
+                                        (
+                                            [arguments:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                                (
+                                                    [command] => Symfony\Component\Console\Input\InputArgument Object
+                                                        (
+                                                            [name:Symfony\Component\Console\Input\InputArgument:private] => command
+                                                            [mode:Symfony\Component\Console\Input\InputArgument:private] => 1
+                                                            [default:Symfony\Component\Console\Input\InputArgument:private] => 
+                                                            [description:Symfony\Component\Console\Input\InputArgument:private] => The command to execute
+                                                        )
+
+                                                )
+
+                                            [requiredCount:Symfony\Component\Console\Input\InputDefinition:private] => 1
+                                            [hasAnArrayArgument:Symfony\Component\Console\Input\InputDefinition:private] => 
+                                            [hasOptional:Symfony\Component\Console\Input\InputDefinition:private] => 
+                                            [options:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                                (
+                                                    [help] => Symfony\Component\Console\Input\InputOption Object
+                                                        (
+                                                            [name:Symfony\Component\Console\Input\InputOption:private] => help
+                                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => h
+                                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                            [description:Symfony\Component\Console\Input\InputOption:private] => Display this help message
+                                                        )
+
+                                                    [quiet] => Symfony\Component\Console\Input\InputOption Object
+                                                        (
+                                                            [name:Symfony\Component\Console\Input\InputOption:private] => quiet
+                                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => q
+                                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                            [description:Symfony\Component\Console\Input\InputOption:private] => Do not output any message
+                                                        )
+
+                                                    [verbose] => Symfony\Component\Console\Input\InputOption Object
+                                                        (
+                                                            [name:Symfony\Component\Console\Input\InputOption:private] => verbose
+                                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => v|vv|vvv
+                                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                            [description:Symfony\Component\Console\Input\InputOption:private] => Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+                                                        )
+
+                                                    [version] => Symfony\Component\Console\Input\InputOption Object
+                                                        (
+                                                            [name:Symfony\Component\Console\Input\InputOption:private] => version
+                                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => V
+                                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                            [description:Symfony\Component\Console\Input\InputOption:private] => Display this application version
+                                                        )
+
+                                                    [ansi] => Symfony\Component\Console\Input\InputOption Object
+                                                        (
+                                                            [name:Symfony\Component\Console\Input\InputOption:private] => ansi
+                                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                            [description:Symfony\Component\Console\Input\InputOption:private] => Force ANSI output
+                                                        )
+
+                                                    [no-ansi] => Symfony\Component\Console\Input\InputOption Object
+                                                        (
+                                                            [name:Symfony\Component\Console\Input\InputOption:private] => no-ansi
+                                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                            [description:Symfony\Component\Console\Input\InputOption:private] => Disable ANSI output
+                                                        )
+
+                                                    [no-interaction] => Symfony\Component\Console\Input\InputOption Object
+                                                        (
+                                                            [name:Symfony\Component\Console\Input\InputOption:private] => no-interaction
+                                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => n
+                                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                            [description:Symfony\Component\Console\Input\InputOption:private] => Do not ask any interactive question
+                                                        )
+
+                                                    [env] => Symfony\Component\Console\Input\InputOption Object
+                                                        (
+                                                            [name:Symfony\Component\Console\Input\InputOption:private] => env
+                                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 4
+                                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                            [description:Symfony\Component\Console\Input\InputOption:private] => The environment the command should run under
+                                                        )
+
+                                                )
+
+                                            [shortcuts:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                                (
+                                                    [h] => help
+                                                    [q] => quiet
+                                                    [v] => verbose
+                                                    [vv] => verbose
+                                                    [vvv] => verbose
+                                                    [V] => version
+                                                    [n] => no-interaction
+                                                )
+
+                                        )
+
+                                    [stream:protected] => 
+                                    [options:protected] => Array
+                                        (
+                                            [quiet] => 1
+                                        )
+
+                                    [arguments:protected] => Array
+                                        (
+                                            [command] => hello
+                                        )
+
+                                    [interactive:protected] => 
+                                )
+
+                            [questionHelper:Symfony\Component\Console\Style\SymfonyStyle:private] => 
+                            [progressBar:Symfony\Component\Console\Style\SymfonyStyle:private] => 
+                            [lineLength:Symfony\Component\Console\Style\SymfonyStyle:private] => 79
+                            [bufferedOutput:Symfony\Component\Console\Style\SymfonyStyle:private] => Symfony\Component\Console\Output\BufferedOutput Object
+                                (
+                                    [buffer:Symfony\Component\Console\Output\BufferedOutput:private] => 
+                                    [verbosity:Symfony\Component\Console\Output\Output:private] => 16
+                                    [formatter:Symfony\Component\Console\Output\Output:private] => Symfony\Component\Console\Formatter\OutputFormatter Object
+                                        (
+                                            [decorated:Symfony\Component\Console\Formatter\OutputFormatter:private] => 
+                                            [styles:Symfony\Component\Console\Formatter\OutputFormatter:private] => Array
+                                                (
+                                                    [error] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                        (
+                                                            [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 37
+                                                                    [unset] => 39
+                                                                )
+
+                                                            [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 41
+                                                                    [unset] => 49
+                                                                )
+
+                                                            [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                )
+
+                                                        )
+
+                                                    [info] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                        (
+                                                            [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 32
+                                                                    [unset] => 39
+                                                                )
+
+                                                            [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                            [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                )
+
+                                                        )
+
+                                                    [comment] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                        (
+                                                            [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 33
+                                                                    [unset] => 39
+                                                                )
+
+                                                            [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                            [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                )
+
+                                                        )
+
+                                                    [question] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                        (
+                                                            [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 30
+                                                                    [unset] => 39
+                                                                )
+
+                                                            [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 46
+                                                                    [unset] => 49
+                                                                )
+
+                                                            [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [styleStack:Symfony\Component\Console\Formatter\OutputFormatter:private] => Symfony\Component\Console\Formatter\OutputFormatterStyleStack Object
+                                                (
+                                                    [styles:Symfony\Component\Console\Formatter\OutputFormatterStyleStack:private] => Array
+                                                        (
+                                                        )
+
+                                                    [emptyStyle:Symfony\Component\Console\Formatter\OutputFormatterStyleStack:private] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                        (
+                                                            [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                            [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                            [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [output:Symfony\Component\Console\Style\OutputStyle:private] => Symfony\Component\Console\Output\ConsoleOutput Object
+                                (
+                                    [stderr:Symfony\Component\Console\Output\ConsoleOutput:private] => Symfony\Component\Console\Output\StreamOutput Object
+                                        (
+                                            [stream:Symfony\Component\Console\Output\StreamOutput:private] => Resource id #62
+                                            [verbosity:Symfony\Component\Console\Output\Output:private] => 16
+                                            [formatter:Symfony\Component\Console\Output\Output:private] => Symfony\Component\Console\Formatter\OutputFormatter Object
+                                                (
+                                                    [decorated:Symfony\Component\Console\Formatter\OutputFormatter:private] => 1
+                                                    [styles:Symfony\Component\Console\Formatter\OutputFormatter:private] => Array
+                                                        (
+                                                            [error] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                                (
+                                                                    [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                            [set] => 37
+                                                                            [unset] => 39
+                                                                        )
+
+                                                                    [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                            [set] => 41
+                                                                            [unset] => 49
+                                                                        )
+
+                                                                    [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                        )
+
+                                                                )
+
+                                                            [info] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                                (
+                                                                    [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                            [set] => 32
+                                                                            [unset] => 39
+                                                                        )
+
+                                                                    [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                                    [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                        )
+
+                                                                )
+
+                                                            [comment] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                                (
+                                                                    [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                            [set] => 33
+                                                                            [unset] => 39
+                                                                        )
+
+                                                                    [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                                    [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                        )
+
+                                                                )
+
+                                                            [question] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                                (
+                                                                    [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                            [set] => 30
+                                                                            [unset] => 39
+                                                                        )
+
+                                                                    [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                            [set] => 46
+                                                                            [unset] => 49
+                                                                        )
+
+                                                                    [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [styleStack:Symfony\Component\Console\Formatter\OutputFormatter:private] => Symfony\Component\Console\Formatter\OutputFormatterStyleStack Object
+                                                        (
+                                                            [styles:Symfony\Component\Console\Formatter\OutputFormatterStyleStack:private] => Array
+                                                                (
+                                                                )
+
+                                                            [emptyStyle:Symfony\Component\Console\Formatter\OutputFormatterStyleStack:private] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                                (
+                                                                    [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                                    [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                                    [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                        (
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                    [stream:Symfony\Component\Console\Output\StreamOutput:private] => Resource id #56
+                                    [verbosity:Symfony\Component\Console\Output\Output:private] => 16
+                                    [formatter:Symfony\Component\Console\Output\Output:private] => Symfony\Component\Console\Formatter\OutputFormatter Object
+                                        (
+                                            [decorated:Symfony\Component\Console\Formatter\OutputFormatter:private] => 1
+                                            [styles:Symfony\Component\Console\Formatter\OutputFormatter:private] => Array
+                                                (
+                                                    [error] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                        (
+                                                            [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 37
+                                                                    [unset] => 39
+                                                                )
+
+                                                            [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 41
+                                                                    [unset] => 49
+                                                                )
+
+                                                            [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                )
+
+                                                        )
+
+                                                    [info] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                        (
+                                                            [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 32
+                                                                    [unset] => 39
+                                                                )
+
+                                                            [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                            [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                )
+
+                                                        )
+
+                                                    [comment] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                        (
+                                                            [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 33
+                                                                    [unset] => 39
+                                                                )
+
+                                                            [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                            [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                )
+
+                                                        )
+
+                                                    [question] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                        (
+                                                            [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 30
+                                                                    [unset] => 39
+                                                                )
+
+                                                            [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                    [set] => 46
+                                                                    [unset] => 49
+                                                                )
+
+                                                            [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [styleStack:Symfony\Component\Console\Formatter\OutputFormatter:private] => Symfony\Component\Console\Formatter\OutputFormatterStyleStack Object
+                                                (
+                                                    [styles:Symfony\Component\Console\Formatter\OutputFormatterStyleStack:private] => Array
+                                                        (
+                                                        )
+
+                                                    [emptyStyle:Symfony\Component\Console\Formatter\OutputFormatterStyleStack:private] => Symfony\Component\Console\Formatter\OutputFormatterStyle Object
+                                                        (
+                                                            [foreground:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                            [background:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => 
+                                                            [options:Symfony\Component\Console\Formatter\OutputFormatterStyle:private] => Array
+                                                                (
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [name:protected] => hello
+                    [description:protected] => 
+                    [hidden:protected] => 
+                    [verbosity:protected] => 32
+                    [verbosityMap:protected] => Array
+                        (
+                            [v] => 64
+                            [vv] => 128
+                            [vvv] => 256
+                            [quiet] => 16
+                            [normal] => 32
+                        )
+
+                    [application:Symfony\Component\Console\Command\Command:private] => FightTheIce\Console\Application Object
+                        (
+                            [events:protected] => Illuminate\Events\Dispatcher Object
+                                (
+                                    [container:protected] => Illuminate\Container\Container Object
+                                        (
+                                            [resolved:protected] => Array
+                                                (
+                                                    [Hello] => 1
+                                                )
+
+                                            [bindings:protected] => Array
+                                                (
+                                                )
+
+                                            [methodBindings:protected] => Array
+                                                (
+                                                )
+
+                                            [instances:protected] => Array
+                                                (
+                                                )
+
+                                            [aliases:protected] => Array
+                                                (
+                                                )
+
+                                            [abstractAliases:protected] => Array
+                                                (
+                                                )
+
+                                            [extenders:protected] => Array
+                                                (
+                                                )
+
+                                            [tags:protected] => Array
+                                                (
+                                                )
+
+                                            [buildStack:protected] => Array
+                                                (
+                                                )
+
+                                            [with:protected] => Array
+                                                (
+                                                )
+
+                                            [contextual] => Array
+                                                (
+                                                )
+
+                                            [reboundCallbacks:protected] => Array
+                                                (
+                                                )
+
+                                            [globalResolvingCallbacks:protected] => Array
+                                                (
+                                                )
+
+                                            [globalAfterResolvingCallbacks:protected] => Array
+                                                (
+                                                )
+
+                                            [resolvingCallbacks:protected] => Array
+                                                (
+                                                )
+
+                                            [afterResolvingCallbacks:protected] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                    [listeners:protected] => Array
+                                        (
+                                        )
+
+                                    [wildcards:protected] => Array
+                                        (
+                                            [FightTheIce\Console\Events\Output\*] => Array
+                                                (
+                                                    [0] => Closure Object
+                                                        (
+                                                            [static] => Array
+                                                                (
+                                                                    [listener] => Closure Object
+                                                                        (
+                                                                            [this] => Hello Object
+ *RECURSION*
+                                                                            [parameter] => Array
+                                                                                (
+                                                                                    [$name] => <required>
+                                                                                    [$data] => <required>
+                                                                                )
+
+                                                                        )
+
+                                                                    [wildcard] => 1
+                                                                )
+
+                                                            [this] => Illuminate\Events\Dispatcher Object
+ *RECURSION*
+                                                            [parameter] => Array
+                                                                (
+                                                                    [$event] => <required>
+                                                                    [$payload] => <required>
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                    [queueResolver:protected] => 
+                                )
+
+                            [laravel:protected] => Illuminate\Container\Container Object
+                                (
+                                    [resolved:protected] => Array
+                                        (
+                                            [Hello] => 1
+                                        )
+
+                                    [bindings:protected] => Array
+                                        (
+                                        )
+
+                                    [methodBindings:protected] => Array
+                                        (
+                                        )
+
+                                    [instances:protected] => Array
+                                        (
+                                        )
+
+                                    [aliases:protected] => Array
+                                        (
+                                        )
+
+                                    [abstractAliases:protected] => Array
+                                        (
+                                        )
+
+                                    [extenders:protected] => Array
+                                        (
+                                        )
+
+                                    [tags:protected] => Array
+                                        (
+                                        )
+
+                                    [buildStack:protected] => Array
+                                        (
+                                        )
+
+                                    [with:protected] => Array
+                                        (
+                                        )
+
+                                    [contextual] => Array
+                                        (
+                                        )
+
+                                    [reboundCallbacks:protected] => Array
+                                        (
+                                        )
+
+                                    [globalResolvingCallbacks:protected] => Array
+                                        (
+                                        )
+
+                                    [globalAfterResolvingCallbacks:protected] => Array
+                                        (
+                                        )
+
+                                    [resolvingCallbacks:protected] => Array
+                                        (
+                                        )
+
+                                    [afterResolvingCallbacks:protected] => Array
+                                        (
+                                        )
+
+                                )
+
+                            [lastOutput:protected] => 
+                            [commands:Symfony\Component\Console\Application:private] => Array
+                                (
+                                    [help] => Symfony\Component\Console\Command\HelpCommand Object
+                                        (
+                                            [command:Symfony\Component\Console\Command\HelpCommand:private] => 
+                                            [application:Symfony\Component\Console\Command\Command:private] => FightTheIce\Console\Application Object
+ *RECURSION*
+                                            [name:Symfony\Component\Console\Command\Command:private] => help
+                                            [processTitle:Symfony\Component\Console\Command\Command:private] => 
+                                            [aliases:Symfony\Component\Console\Command\Command:private] => Array
+                                                (
+                                                )
+
+                                            [definition:Symfony\Component\Console\Command\Command:private] => Symfony\Component\Console\Input\InputDefinition Object
+                                                (
+                                                    [arguments:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                                        (
+                                                            [command_name] => Symfony\Component\Console\Input\InputArgument Object
+                                                                (
+                                                                    [name:Symfony\Component\Console\Input\InputArgument:private] => command_name
+                                                                    [mode:Symfony\Component\Console\Input\InputArgument:private] => 2
+                                                                    [default:Symfony\Component\Console\Input\InputArgument:private] => help
+                                                                    [description:Symfony\Component\Console\Input\InputArgument:private] => The command name
+                                                                )
+
+                                                        )
+
+                                                    [requiredCount:Symfony\Component\Console\Input\InputDefinition:private] => 0
+                                                    [hasAnArrayArgument:Symfony\Component\Console\Input\InputDefinition:private] => 
+                                                    [hasOptional:Symfony\Component\Console\Input\InputDefinition:private] => 1
+                                                    [options:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                                        (
+                                                            [format] => Symfony\Component\Console\Input\InputOption Object
+                                                                (
+                                                                    [name:Symfony\Component\Console\Input\InputOption:private] => format
+                                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 2
+                                                                    [default:Symfony\Component\Console\Input\InputOption:private] => txt
+                                                                    [description:Symfony\Component\Console\Input\InputOption:private] => The output format (txt, xml, json, or md)
+                                                                )
+
+                                                            [raw] => Symfony\Component\Console\Input\InputOption Object
+                                                                (
+                                                                    [name:Symfony\Component\Console\Input\InputOption:private] => raw
+                                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                                    [description:Symfony\Component\Console\Input\InputOption:private] => To output raw command help
+                                                                )
+
+                                                        )
+
+                                                    [shortcuts:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                                        (
+                                                        )
+
+                                                )
+
+                                            [hidden:Symfony\Component\Console\Command\Command:private] => 
+                                            [help:Symfony\Component\Console\Command\Command:private] => The <info>%command.name%</info> command displays help for a given command:
+
+  <info>php %command.full_name% list</info>
+
+You can also output the help in other formats by using the <comment>--format</comment> option:
+
+  <info>php %command.full_name% --format=xml list</info>
+
+To display the list of available commands, please use the <info>list</info> command.
+                                            [description:Symfony\Component\Console\Command\Command:private] => Displays help for a command
+                                            [ignoreValidationErrors:Symfony\Component\Console\Command\Command:private] => 1
+                                            [applicationDefinitionMerged:Symfony\Component\Console\Command\Command:private] => 
+                                            [applicationDefinitionMergedWithArgs:Symfony\Component\Console\Command\Command:private] => 
+                                            [code:Symfony\Component\Console\Command\Command:private] => 
+                                            [synopsis:Symfony\Component\Console\Command\Command:private] => Array
+                                                (
+                                                )
+
+                                            [usages:Symfony\Component\Console\Command\Command:private] => Array
+                                                (
+                                                )
+
+                                            [helperSet:Symfony\Component\Console\Command\Command:private] => Symfony\Component\Console\Helper\HelperSet Object
+                                                (
+                                                    [helpers:Symfony\Component\Console\Helper\HelperSet:private] => Array
+                                                        (
+                                                            [formatter] => Symfony\Component\Console\Helper\FormatterHelper Object
+                                                                (
+                                                                    [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                                                )
+
+                                                            [debug_formatter] => Symfony\Component\Console\Helper\DebugFormatterHelper Object
+                                                                (
+                                                                    [colors:Symfony\Component\Console\Helper\DebugFormatterHelper:private] => Array
+                                                                        (
+                                                                            [0] => black
+                                                                            [1] => red
+                                                                            [2] => green
+                                                                            [3] => yellow
+                                                                            [4] => blue
+                                                                            [5] => magenta
+                                                                            [6] => cyan
+                                                                            [7] => white
+                                                                            [8] => default
+                                                                        )
+
+                                                                    [started:Symfony\Component\Console\Helper\DebugFormatterHelper:private] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [count:Symfony\Component\Console\Helper\DebugFormatterHelper:private] => -1
+                                                                    [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                                                )
+
+                                                            [process] => Symfony\Component\Console\Helper\ProcessHelper Object
+                                                                (
+                                                                    [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                                                )
+
+                                                            [question] => Symfony\Component\Console\Helper\QuestionHelper Object
+                                                                (
+                                                                    [inputStream:Symfony\Component\Console\Helper\QuestionHelper:private] => 
+                                                                    [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                                                )
+
+                                                        )
+
+                                                    [command:Symfony\Component\Console\Helper\HelperSet:private] => 
+                                                )
+
+                                        )
+
+                                    [list] => Symfony\Component\Console\Command\ListCommand Object
+                                        (
+                                            [application:Symfony\Component\Console\Command\Command:private] => FightTheIce\Console\Application Object
+ *RECURSION*
+                                            [name:Symfony\Component\Console\Command\Command:private] => list
+                                            [processTitle:Symfony\Component\Console\Command\Command:private] => 
+                                            [aliases:Symfony\Component\Console\Command\Command:private] => Array
+                                                (
+                                                )
+
+                                            [definition:Symfony\Component\Console\Command\Command:private] => Symfony\Component\Console\Input\InputDefinition Object
+                                                (
+                                                    [arguments:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                                        (
+                                                            [namespace] => Symfony\Component\Console\Input\InputArgument Object
+                                                                (
+                                                                    [name:Symfony\Component\Console\Input\InputArgument:private] => namespace
+                                                                    [mode:Symfony\Component\Console\Input\InputArgument:private] => 2
+                                                                    [default:Symfony\Component\Console\Input\InputArgument:private] => 
+                                                                    [description:Symfony\Component\Console\Input\InputArgument:private] => The namespace name
+                                                                )
+
+                                                        )
+
+                                                    [requiredCount:Symfony\Component\Console\Input\InputDefinition:private] => 0
+                                                    [hasAnArrayArgument:Symfony\Component\Console\Input\InputDefinition:private] => 
+                                                    [hasOptional:Symfony\Component\Console\Input\InputDefinition:private] => 1
+                                                    [options:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                                        (
+                                                            [raw] => Symfony\Component\Console\Input\InputOption Object
+                                                                (
+                                                                    [name:Symfony\Component\Console\Input\InputOption:private] => raw
+                                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                                    [description:Symfony\Component\Console\Input\InputOption:private] => To output raw command list
+                                                                )
+
+                                                            [format] => Symfony\Component\Console\Input\InputOption Object
+                                                                (
+                                                                    [name:Symfony\Component\Console\Input\InputOption:private] => format
+                                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 2
+                                                                    [default:Symfony\Component\Console\Input\InputOption:private] => txt
+                                                                    [description:Symfony\Component\Console\Input\InputOption:private] => The output format (txt, xml, json, or md)
+                                                                )
+
+                                                        )
+
+                                                    [shortcuts:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                                        (
+                                                        )
+
+                                                )
+
+                                            [hidden:Symfony\Component\Console\Command\Command:private] => 
+                                            [help:Symfony\Component\Console\Command\Command:private] => The <info>%command.name%</info> command lists all commands:
+
+  <info>php %command.full_name%</info>
+
+You can also display the commands for a specific namespace:
+
+  <info>php %command.full_name% test</info>
+
+You can also output the information in other formats by using the <comment>--format</comment> option:
+
+  <info>php %command.full_name% --format=xml</info>
+
+It's also possible to get raw list of commands (useful for embedding command runner):
+
+  <info>php %command.full_name% --raw</info>
+                                            [description:Symfony\Component\Console\Command\Command:private] => Lists commands
+                                            [ignoreValidationErrors:Symfony\Component\Console\Command\Command:private] => 
+                                            [applicationDefinitionMerged:Symfony\Component\Console\Command\Command:private] => 
+                                            [applicationDefinitionMergedWithArgs:Symfony\Component\Console\Command\Command:private] => 
+                                            [code:Symfony\Component\Console\Command\Command:private] => 
+                                            [synopsis:Symfony\Component\Console\Command\Command:private] => Array
+                                                (
+                                                )
+
+                                            [usages:Symfony\Component\Console\Command\Command:private] => Array
+                                                (
+                                                )
+
+                                            [helperSet:Symfony\Component\Console\Command\Command:private] => Symfony\Component\Console\Helper\HelperSet Object
+                                                (
+                                                    [helpers:Symfony\Component\Console\Helper\HelperSet:private] => Array
+                                                        (
+                                                            [formatter] => Symfony\Component\Console\Helper\FormatterHelper Object
+                                                                (
+                                                                    [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                                                )
+
+                                                            [debug_formatter] => Symfony\Component\Console\Helper\DebugFormatterHelper Object
+                                                                (
+                                                                    [colors:Symfony\Component\Console\Helper\DebugFormatterHelper:private] => Array
+                                                                        (
+                                                                            [0] => black
+                                                                            [1] => red
+                                                                            [2] => green
+                                                                            [3] => yellow
+                                                                            [4] => blue
+                                                                            [5] => magenta
+                                                                            [6] => cyan
+                                                                            [7] => white
+                                                                            [8] => default
+                                                                        )
+
+                                                                    [started:Symfony\Component\Console\Helper\DebugFormatterHelper:private] => Array
+                                                                        (
+                                                                        )
+
+                                                                    [count:Symfony\Component\Console\Helper\DebugFormatterHelper:private] => -1
+                                                                    [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                                                )
+
+                                                            [process] => Symfony\Component\Console\Helper\ProcessHelper Object
+                                                                (
+                                                                    [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                                                )
+
+                                                            [question] => Symfony\Component\Console\Helper\QuestionHelper Object
+                                                                (
+                                                                    [inputStream:Symfony\Component\Console\Helper\QuestionHelper:private] => 
+                                                                    [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                                                )
+
+                                                        )
+
+                                                    [command:Symfony\Component\Console\Helper\HelperSet:private] => 
+                                                )
+
+                                        )
+
+                                    [hello] => Hello Object
+ *RECURSION*
+                                )
+
+                            [wantHelps:Symfony\Component\Console\Application:private] => 
+                            [runningCommand:Symfony\Component\Console\Application:private] => Hello Object
+ *RECURSION*
+                            [name:Symfony\Component\Console\Application:private] => Console App
+                            [version:Symfony\Component\Console\Application:private] => Beta-1
+                            [commandLoader:Symfony\Component\Console\Application:private] => 
+                            [catchExceptions:Symfony\Component\Console\Application:private] => 
+                            [autoExit:Symfony\Component\Console\Application:private] => 
+                            [definition:Symfony\Component\Console\Application:private] => Symfony\Component\Console\Input\InputDefinition Object
+                                (
+                                    [arguments:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                        (
+                                            [command] => Symfony\Component\Console\Input\InputArgument Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputArgument:private] => command
+                                                    [mode:Symfony\Component\Console\Input\InputArgument:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputArgument:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputArgument:private] => The command to execute
+                                                )
+
+                                        )
+
+                                    [requiredCount:Symfony\Component\Console\Input\InputDefinition:private] => 1
+                                    [hasAnArrayArgument:Symfony\Component\Console\Input\InputDefinition:private] => 
+                                    [hasOptional:Symfony\Component\Console\Input\InputDefinition:private] => 
+                                    [options:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                        (
+                                            [help] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => help
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => h
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => Display this help message
+                                                )
+
+                                            [quiet] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => quiet
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => q
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => Do not output any message
+                                                )
+
+                                            [verbose] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => verbose
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => v|vv|vvv
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+                                                )
+
+                                            [version] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => version
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => V
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => Display this application version
+                                                )
+
+                                            [ansi] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => ansi
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => Force ANSI output
+                                                )
+
+                                            [no-ansi] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => no-ansi
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => Disable ANSI output
+                                                )
+
+                                            [no-interaction] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => no-interaction
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => n
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => Do not ask any interactive question
+                                                )
+
+                                            [env] => Symfony\Component\Console\Input\InputOption Object
+                                                (
+                                                    [name:Symfony\Component\Console\Input\InputOption:private] => env
+                                                    [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [mode:Symfony\Component\Console\Input\InputOption:private] => 4
+                                                    [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                                    [description:Symfony\Component\Console\Input\InputOption:private] => The environment the command should run under
+                                                )
+
+                                        )
+
+                                    [shortcuts:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                        (
+                                            [h] => help
+                                            [q] => quiet
+                                            [v] => verbose
+                                            [vv] => verbose
+                                            [vvv] => verbose
+                                            [V] => version
+                                            [n] => no-interaction
+                                        )
+
+                                )
+
+                            [helperSet:Symfony\Component\Console\Application:private] => Symfony\Component\Console\Helper\HelperSet Object
+                                (
+                                    [helpers:Symfony\Component\Console\Helper\HelperSet:private] => Array
+                                        (
+                                            [formatter] => Symfony\Component\Console\Helper\FormatterHelper Object
+                                                (
+                                                    [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                                )
+
+                                            [debug_formatter] => Symfony\Component\Console\Helper\DebugFormatterHelper Object
+                                                (
+                                                    [colors:Symfony\Component\Console\Helper\DebugFormatterHelper:private] => Array
+                                                        (
+                                                            [0] => black
+                                                            [1] => red
+                                                            [2] => green
+                                                            [3] => yellow
+                                                            [4] => blue
+                                                            [5] => magenta
+                                                            [6] => cyan
+                                                            [7] => white
+                                                            [8] => default
+                                                        )
+
+                                                    [started:Symfony\Component\Console\Helper\DebugFormatterHelper:private] => Array
+                                                        (
+                                                        )
+
+                                                    [count:Symfony\Component\Console\Helper\DebugFormatterHelper:private] => -1
+                                                    [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                                )
+
+                                            [process] => Symfony\Component\Console\Helper\ProcessHelper Object
+                                                (
+                                                    [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                                )
+
+                                            [question] => Symfony\Component\Console\Helper\QuestionHelper Object
+                                                (
+                                                    [inputStream:Symfony\Component\Console\Helper\QuestionHelper:private] => 
+                                                    [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                                )
+
+                                        )
+
+                                    [command:Symfony\Component\Console\Helper\HelperSet:private] => 
+                                )
+
+                            [dispatcher:Symfony\Component\Console\Application:private] => 
+                            [terminal:Symfony\Component\Console\Application:private] => Symfony\Component\Console\Terminal Object
+                                (
+                                )
+
+                            [defaultCommand:Symfony\Component\Console\Application:private] => list
+                            [singleCommand:Symfony\Component\Console\Application:private] => 
+                            [initialized:Symfony\Component\Console\Application:private] => 1
+                        )
+
+                    [processTitle:Symfony\Component\Console\Command\Command:private] => 
+                    [aliases:Symfony\Component\Console\Command\Command:private] => Array
+                        (
+                        )
+
+                    [definition:Symfony\Component\Console\Command\Command:private] => Symfony\Component\Console\Input\InputDefinition Object
+                        (
+                            [arguments:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                (
+                                    [command] => Symfony\Component\Console\Input\InputArgument Object
+                                        (
+                                            [name:Symfony\Component\Console\Input\InputArgument:private] => command
+                                            [mode:Symfony\Component\Console\Input\InputArgument:private] => 1
+                                            [default:Symfony\Component\Console\Input\InputArgument:private] => 
+                                            [description:Symfony\Component\Console\Input\InputArgument:private] => The command to execute
+                                        )
+
+                                )
+
+                            [requiredCount:Symfony\Component\Console\Input\InputDefinition:private] => 1
+                            [hasAnArrayArgument:Symfony\Component\Console\Input\InputDefinition:private] => 
+                            [hasOptional:Symfony\Component\Console\Input\InputDefinition:private] => 
+                            [options:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                (
+                                    [help] => Symfony\Component\Console\Input\InputOption Object
+                                        (
+                                            [name:Symfony\Component\Console\Input\InputOption:private] => help
+                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => h
+                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                            [description:Symfony\Component\Console\Input\InputOption:private] => Display this help message
+                                        )
+
+                                    [quiet] => Symfony\Component\Console\Input\InputOption Object
+                                        (
+                                            [name:Symfony\Component\Console\Input\InputOption:private] => quiet
+                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => q
+                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                            [description:Symfony\Component\Console\Input\InputOption:private] => Do not output any message
+                                        )
+
+                                    [verbose] => Symfony\Component\Console\Input\InputOption Object
+                                        (
+                                            [name:Symfony\Component\Console\Input\InputOption:private] => verbose
+                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => v|vv|vvv
+                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                            [description:Symfony\Component\Console\Input\InputOption:private] => Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+                                        )
+
+                                    [version] => Symfony\Component\Console\Input\InputOption Object
+                                        (
+                                            [name:Symfony\Component\Console\Input\InputOption:private] => version
+                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => V
+                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                            [description:Symfony\Component\Console\Input\InputOption:private] => Display this application version
+                                        )
+
+                                    [ansi] => Symfony\Component\Console\Input\InputOption Object
+                                        (
+                                            [name:Symfony\Component\Console\Input\InputOption:private] => ansi
+                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                            [description:Symfony\Component\Console\Input\InputOption:private] => Force ANSI output
+                                        )
+
+                                    [no-ansi] => Symfony\Component\Console\Input\InputOption Object
+                                        (
+                                            [name:Symfony\Component\Console\Input\InputOption:private] => no-ansi
+                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                            [description:Symfony\Component\Console\Input\InputOption:private] => Disable ANSI output
+                                        )
+
+                                    [no-interaction] => Symfony\Component\Console\Input\InputOption Object
+                                        (
+                                            [name:Symfony\Component\Console\Input\InputOption:private] => no-interaction
+                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => n
+                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 1
+                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                            [description:Symfony\Component\Console\Input\InputOption:private] => Do not ask any interactive question
+                                        )
+
+                                    [env] => Symfony\Component\Console\Input\InputOption Object
+                                        (
+                                            [name:Symfony\Component\Console\Input\InputOption:private] => env
+                                            [shortcut:Symfony\Component\Console\Input\InputOption:private] => 
+                                            [mode:Symfony\Component\Console\Input\InputOption:private] => 4
+                                            [default:Symfony\Component\Console\Input\InputOption:private] => 
+                                            [description:Symfony\Component\Console\Input\InputOption:private] => The environment the command should run under
+                                        )
+
+                                )
+
+                            [shortcuts:Symfony\Component\Console\Input\InputDefinition:private] => Array
+                                (
+                                    [h] => help
+                                    [q] => quiet
+                                    [v] => verbose
+                                    [vv] => verbose
+                                    [vvv] => verbose
+                                    [V] => version
+                                    [n] => no-interaction
+                                )
+
+                        )
+
+                    [help:Symfony\Component\Console\Command\Command:private] => 
+                    [ignoreValidationErrors:Symfony\Component\Console\Command\Command:private] => 
+                    [applicationDefinitionMerged:Symfony\Component\Console\Command\Command:private] => 1
+                    [applicationDefinitionMergedWithArgs:Symfony\Component\Console\Command\Command:private] => 1
+                    [code:Symfony\Component\Console\Command\Command:private] => 
+                    [synopsis:Symfony\Component\Console\Command\Command:private] => Array
+                        (
+                            [short] => hello
+                            [long] => hello
+                        )
+
+                    [usages:Symfony\Component\Console\Command\Command:private] => Array
+                        (
+                        )
+
+                    [helperSet:Symfony\Component\Console\Command\Command:private] => Symfony\Component\Console\Helper\HelperSet Object
+                        (
+                            [helpers:Symfony\Component\Console\Helper\HelperSet:private] => Array
+                                (
+                                    [formatter] => Symfony\Component\Console\Helper\FormatterHelper Object
+                                        (
+                                            [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                        )
+
+                                    [debug_formatter] => Symfony\Component\Console\Helper\DebugFormatterHelper Object
+                                        (
+                                            [colors:Symfony\Component\Console\Helper\DebugFormatterHelper:private] => Array
+                                                (
+                                                    [0] => black
+                                                    [1] => red
+                                                    [2] => green
+                                                    [3] => yellow
+                                                    [4] => blue
+                                                    [5] => magenta
+                                                    [6] => cyan
+                                                    [7] => white
+                                                    [8] => default
+                                                )
+
+                                            [started:Symfony\Component\Console\Helper\DebugFormatterHelper:private] => Array
+                                                (
+                                                )
+
+                                            [count:Symfony\Component\Console\Helper\DebugFormatterHelper:private] => -1
+                                            [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                        )
+
+                                    [process] => Symfony\Component\Console\Helper\ProcessHelper Object
+                                        (
+                                            [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                        )
+
+                                    [question] => Symfony\Component\Console\Helper\QuestionHelper Object
+                                        (
+                                            [inputStream:Symfony\Component\Console\Helper\QuestionHelper:private] => 
+                                            [helperSet:protected] => Symfony\Component\Console\Helper\HelperSet Object
+ *RECURSION*
+                                        )
+
+                                )
+
+                            [command:Symfony\Component\Console\Helper\HelperSet:private] => 
+                        )
+
+                    [name:Symfony\Component\Console\Command\Command:private] => hello
+                    [hidden:Symfony\Component\Console\Command\Command:private] => 
+                    [description:Symfony\Component\Console\Command\Command:private] => 
+                )
+
+        )
+
+)
