@@ -14,7 +14,9 @@ but I needed a few special things:
 ** I also didn't want to implement a custom output adapter
 * I needed lots and lots of events to fire
 
-I ended up making a few small modifications to illuminate/console and thus fighttheice/console was born.
+I ended up making a few small modifications to illuminate/console and thus fighttheice/console was born. 
+You can read more details of how to use Illuminate/Console at: https://laravel.com/docs/5.4/artisan
+Any methods available to illuminate/console are also available to FTI/Console with the exception of scheduling.
 
 # Basic Usage
 ```php
