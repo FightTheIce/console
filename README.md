@@ -35,7 +35,9 @@ $console->run();
 
 namespace App\Commands;
 
-class MyCommand {
+use FightTheIce\Console\Command;
+
+class MyCommand extends Command {
 	protected $signature = 'my:command';
 	protected $description = 'My first command';
 	protected $hidden = false;
@@ -54,7 +56,9 @@ You may use the following output methods in your commands
 
 namespace App\Commands;
 
-class OutputCommand {
+use FightTheIce\Console\Command;
+
+class OutputCommand extends Command {
 	protected $signature = 'output:command';
 	protected $description = 'Output test';
 	protected $hidden = false;
@@ -84,7 +88,9 @@ You may use the following input methods in your commands
 
 namespace App\Commands;
 
-class OutputCommand {
+use FightTheIce\Console\Command;
+
+class OutputCommand extends Command {
 	protected $signature = 'input:command';
 	protected $description = 'Input test';
 	protected $hidden = false;
@@ -108,7 +114,9 @@ Here is a list of methods that may be helpful
 
 namespace App\Commands;
 
-class OtherMethodsCommand {
+use FightTheIce\Console\Command;
+
+class OtherMethodsCommand extends Command {
 	protected $signature = 'othermethods:command';
 	protected $description = 'Other Methods';
 	protected $hidden = false;
@@ -129,4 +137,80 @@ class OtherMethodsCommand {
 		));
 	}
 }
+```
+
+# Events
+Anytime you call an input or output method an event is fired. Events are also fired doing the "setup" of the console application, and before and after each command is called
+Here is a list of events.
+
+* FightTheIce\Console\Events\Output\Alert
+* FightTheIce\Console\Events\Output\Anticipate
+* FightTheIce\Console\Events\Output\Ask
+* FightTheIce\Console\Events\Output\AskWithCompletion
+* FightTheIce\Console\Events\Output\Caution
+* FightTheIce\Console\Events\Output\Choice
+* FightTheIce\Console\Events\Output\Comment
+* FightTheIce\Console\Events\Output\Confirm
+* FightTheIce\Console\Events\Output\Error
+* FightTheIce\Console\Events\Output\ErrorExit
+* FightTheIce\Console\Events\Output\Info
+* FightTheIce\Console\Events\Output\Line
+* FightTheIce\Console\Events\Output\Listing
+* FightTheIce\Console\Events\Output\NewLine
+* FightTheIce\Console\Events\Output\Note
+* FightTheIce\Console\Events\Output\Question
+* FightTheIce\Console\Events\Output\Secret
+* FightTheIce\Console\Events\Output\Section
+* FightTheIce\Console\Events\Output\Success
+* FightTheIce\Console\Events\Output\Table
+* FightTheIce\Console\Events\Output\Text
+* FightTheIce\Console\Events\Output\Title
+* FightTheIce\Console\Events\Output\Warn
+* FightTheIce\Console\Events\Output\Warning
+
+* FightTheIce\Console\Events\AfterCommand
+* FightTheIce\Console\Events\ArtisanStarting
+* FightTheIce\Console\Events\BeforeCommand
+* FightTheIce\Console\Events\Error
+* FightTheIce\Console\Events\Terminate
+
+# Using events
+To gain access to the events from within your command call $this->getApplication()->getEvents();
+```php
+<?php
+
+namespace App\Commands;
+
+use FightTheIce\Console\Command;
+use FightTheIce\Console\Events\Output\Comment;
+
+class EventCommand extends Command {
+	....
+
+	public function handle() {
+		$events = $this->getApplication()->getEvents();
+		$events->listen(Comment::class,function($event) {
+			...
+		});
+	}
+}
+```
+
+You may find it easier to build your event listeners outside of your commands. To do this setup your listeners in the bootstrap
+```php
+<?php
+
+include ('vendor/autoload.php');
+
+$console = new FightTheIce\Console\Application('App Name','App Version');
+
+//setup event listeners
+$events = $console->getEvents();
+$events->listen(FightTheIce\Console\Events\Output\Comment::class, function($event) {
+  //do something
+});
+
+$console->resolve('App\Commands\MyCommand');
+
+$console->run();
 ```
