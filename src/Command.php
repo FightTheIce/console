@@ -12,10 +12,18 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 
-class Command extends I_Command
-{
-    protected $enabled   = true;
+class Command extends I_Command {
+    /**
+     * @var mixed
+     */
+    protected $enabled = true;
+    /**
+     * @var mixed
+     */
     protected $useEvents = true;
+    /**
+     * @var mixed
+     */
     private $definition;
 
     /**
@@ -25,8 +33,7 @@ class Command extends I_Command
      * @param  null|int|string  $verbosity
      * @return void
      */
-    public function errorExit($message, $exit = false)
-    {
+    public function errorExit($message, $exit = false) {
         $this->output->writeln('<error>' . $message . '</error>', $this->parseVerbosity(null));
 
         if ($this->shouldUseEvents() == true) {
@@ -45,8 +52,7 @@ class Command extends I_Command
      * @access public
      * @param  string $title
      */
-    public function title($message)
-    {
+    public function title($message) {
         $this->output->title($message);
 
         if ($this->shouldUseEvents() == true) {
@@ -59,8 +65,7 @@ class Command extends I_Command
      * Setup section text
      * @param  string $text
      */
-    public function section($message)
-    {
+    public function section($message) {
         $this->output->section($message);
 
         if ($this->shouldUseEvents() == true) {
@@ -75,8 +80,7 @@ class Command extends I_Command
      * @access public
      * @param  string $message
      */
-    public function text($message)
-    {
+    public function text($message) {
         $this->output->text($message);
 
         if ($this->shouldUseEvents() == true) {
@@ -91,8 +95,7 @@ class Command extends I_Command
      * @access public
      * @param  string $message
      */
-    public function listing(array $elements)
-    {
+    public function listing(array $elements) {
         $this->output->listing($elements);
 
         if ($this->shouldUseEvents() == true) {
@@ -106,8 +109,7 @@ class Command extends I_Command
      *
      * @access public
      */
-    public function newLine($count = 1)
-    {
+    public function newLine($count = 1) {
         $this->output->newLine($count);
 
         if ($this->shouldUseEvents() == true) {
@@ -122,8 +124,7 @@ class Command extends I_Command
      * @access public
      * @param  string $message
      */
-    public function note($message)
-    {
+    public function note($message) {
         $this->output->note($message);
 
         if ($this->shouldUseEvents() == true) {
@@ -138,8 +139,7 @@ class Command extends I_Command
      * @access public
      * @param  string $message
      */
-    public function caution($message)
-    {
+    public function caution($message) {
         $this->output->caution($message);
 
         if ($this->shouldUseEvents() == true) {
@@ -154,8 +154,7 @@ class Command extends I_Command
      * @access public
      * @param  string $message
      */
-    public function success($message)
-    {
+    public function success($message) {
         $this->output->success($message);
 
         if ($this->shouldUseEvents() == true) {
@@ -170,8 +169,7 @@ class Command extends I_Command
      * @access public
      * @param  string $message
      */
-    public function warning($message)
-    {
+    public function warning($message) {
         $this->output->warning($message);
 
         if ($this->shouldUseEvents() == true) {
@@ -186,8 +184,7 @@ class Command extends I_Command
      * @access public
      * @return boolean
      */
-    public function isEnabled()
-    {
+    public function isEnabled() {
         return $this->enabled;
     }
 
@@ -198,8 +195,7 @@ class Command extends I_Command
      * @param  bool    $default
      * @return bool
      */
-    public function confirm($question, $default = false)
-    {
+    public function confirm($question, $default = false) {
         $confirm = parent::confirm($question, $default);
 
         if ($this->shouldUseEvents() == true) {
@@ -216,8 +212,7 @@ class Command extends I_Command
      * @param  string  $default
      * @return string
      */
-    public function ask($question, $default = null)
-    {
+    public function ask($question, $default = null) {
         $ask = parent::ask($question, $default);
 
         if ($this->shouldUseEvents() == true) {
@@ -231,12 +226,11 @@ class Command extends I_Command
      * Prompt the user for input with auto completion.
      *
      * @param  string  $question
-     * @param  array   $choices
-     * @param  string  $default
-     * @return string
+     * @param  callable  $choices
+     * @param  string|null  $default
+     * @return mixed
      */
-    public function anticipate($question, array $choices, $default = null)
-    {
+    public function anticipate($question, $choices, $default = null) {
         $anticipate = parent::askWithCompletion($question, $choices, $default);
 
         if ($this->shouldUseEvents() == true) {
@@ -250,12 +244,11 @@ class Command extends I_Command
      * Prompt the user for input with auto completion.
      *
      * @param  string  $question
-     * @param  array   $choices
-     * @param  string  $default
-     * @return string
+     * @param  array|callable  $choices
+     * @param  string|null  $default
+     * @return mixed
      */
-    public function askWithCompletion($question, array $choices, $default = null)
-    {
+    public function askWithCompletion($question, $choices, $default = null) {
         $askWithCompletion = parent::askWithCompletion($question, $choices, $default);
 
         if ($this->shouldUseEvents() == true) {
@@ -272,8 +265,7 @@ class Command extends I_Command
      * @param  bool    $fallback
      * @return string
      */
-    public function secret($question, $fallback = true)
-    {
+    public function secret($question, $fallback = true) {
         $secret = parent::secret($question, $fallback);
 
         if ($this->shouldUseEvents() == true) {
@@ -293,8 +285,7 @@ class Command extends I_Command
      * @param  bool    $multiple
      * @return string
      */
-    public function choice($question, array $choices, $default = null, $attempts = null, $multiple = null)
-    {
+    public function choice($question, array $choices, $default = null, $attempts = null, $multiple = null) {
         $choice = parent::choice($question, $choices, $default, $attempts, $multiple);
 
         if ($this->shouldUseEvents() == true) {
@@ -307,17 +298,17 @@ class Command extends I_Command
     /**
      * Format input to textual table.
      *
-     * @param  array   $headers
+     * @param  array  $headers
      * @param  \Illuminate\Contracts\Support\Arrayable|array  $rows
-     * @param  string  $style
+     * @param  string  $tableStyle
+     * @param  array  $columnStyles
      * @return void
      */
-    public function table(array $headers, $rows, $style = 'default')
-    {
-        parent::table($headers, $rows, $style);
+    public function table($headers, $rows, $tableStyle = 'default', array $columnStyles = []) {
+        parent::table($headers, $rows, $tableStyle, $columnStyles);
 
         if ($this->shouldUseEvents() == true) {
-            $this->getApplication()->getEvents()->dispatch(new Events\Output\Table($headers, $rows, $style, $this));
+            $this->getApplication()->getEvents()->dispatch(new Events\Output\Table($headers, $rows, $columnStyles, $this));
         }
     }
 
@@ -328,8 +319,7 @@ class Command extends I_Command
      * @param  null|int|string  $verbosity
      * @return void
      */
-    public function info($string, $verbosity = null)
-    {
+    public function info($string, $verbosity = null) {
         parent::line($string, $verbosity);
 
         if ($this->shouldUseEvents() == true) {
@@ -345,8 +335,7 @@ class Command extends I_Command
      * @param  null|int|string  $verbosity
      * @return void
      */
-    public function line($string, $style = null, $verbosity = null)
-    {
+    public function line($string, $style = null, $verbosity = null) {
         parent::line($string, $style, $verbosity);
 
         if ($this->shouldUseEvents() == true) {
@@ -361,8 +350,7 @@ class Command extends I_Command
      * @param  null|int|string  $verbosity
      * @return void
      */
-    public function comment($string, $verbosity = null)
-    {
+    public function comment($string, $verbosity = null) {
         parent::line($string, 'comment', $verbosity);
 
         if ($this->shouldUseEvents() == true) {
@@ -377,8 +365,7 @@ class Command extends I_Command
      * @param  null|int|string  $verbosity
      * @return void
      */
-    public function question($string, $verbosity = null)
-    {
+    public function question($string, $verbosity = null) {
         parent::line($string, 'question', $verbosity);
 
         if ($this->shouldUseEvents() == true) {
@@ -393,8 +380,7 @@ class Command extends I_Command
      * @param  null|int|string  $verbosity
      * @return void
      */
-    public function error($string, $verbosity = null)
-    {
+    public function error($string, $verbosity = null) {
         parent::line($string, 'error', $verbosity);
 
         if ($this->shouldUseEvents() == true) {
@@ -409,8 +395,7 @@ class Command extends I_Command
      * @param  null|int|string  $verbosity
      * @return void
      */
-    public function warn($string, $verbosity = null)
-    {
+    public function warn($string, $verbosity = null) {
         if (!$this->output->getFormatter()->hasStyle('warning')) {
             $style = new OutputFormatterStyle('yellow');
 
@@ -430,8 +415,7 @@ class Command extends I_Command
      * @param  string  $string
      * @return void
      */
-    public function alert($string)
-    {
+    public function alert($string) {
         parent::line(str_repeat('*', strlen($string) + 12), 'comment');
         parent::line('*     ' . $string . '     *');
         parent::line(str_repeat('*', strlen($string) + 12));
@@ -442,8 +426,10 @@ class Command extends I_Command
         }
     }
 
-    public function shouldUseEvents()
-    {
+    /**
+     * @return mixed
+     */
+    public function shouldUseEvents() {
         if (method_exists($this, 'useEvents') == true) {
             $val = $this->useEvents();
 
@@ -465,8 +451,11 @@ class Command extends I_Command
         return false;
     }
 
-    public function setUseEvents($val)
-    {
+    /**
+     * @param $val
+     * @return mixed
+     */
+    public function setUseEvents($val) {
         if (is_bool($val)) {
             $this->useEvents = $val;
         }
@@ -481,8 +470,7 @@ class Command extends I_Command
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return int
      */
-    public function run(InputInterface $input, OutputInterface $output)
-    {
+    public function run(InputInterface $input, OutputInterface $output) {
         $this->input  = $input;
         $this->output = $output;
 
