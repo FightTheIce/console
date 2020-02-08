@@ -146,13 +146,8 @@ Anytime you call an input or output method an event is fired. Events are also fi
 Here is a list of events.
 
 * FightTheIce\Console\Events\Output\Alert
-* FightTheIce\Console\Events\Output\Anticipate
-* FightTheIce\Console\Events\Output\Ask
-* FightTheIce\Console\Events\Output\AskWithCompletion
 * FightTheIce\Console\Events\Output\Caution
-* FightTheIce\Console\Events\Output\Choice
 * FightTheIce\Console\Events\Output\Comment
-* FightTheIce\Console\Events\Output\Confirm
 * FightTheIce\Console\Events\Output\Error
 * FightTheIce\Console\Events\Output\ErrorExit
 * FightTheIce\Console\Events\Output\Info
@@ -161,7 +156,6 @@ Here is a list of events.
 * FightTheIce\Console\Events\Output\NewLine
 * FightTheIce\Console\Events\Output\Note
 * FightTheIce\Console\Events\Output\Question
-* FightTheIce\Console\Events\Output\Secret
 * FightTheIce\Console\Events\Output\Section
 * FightTheIce\Console\Events\Output\Success
 * FightTheIce\Console\Events\Output\Table
@@ -170,11 +164,20 @@ Here is a list of events.
 * FightTheIce\Console\Events\Output\Warn
 * FightTheIce\Console\Events\Output\Warning
 
+* FightTheIce\Console\Events\Input\Anticipate
+* FightTheIce\Console\Events\Input\Ask
+* FightTheIce\Console\Events\Input\AskWithCompletion
+* FightTheIce\Console\Events\Input\Choice
+* FightTheIce\Console\Events\Input\Confirm
+* FightTheIce\Console\Events\Input\Secret
+
 * FightTheIce\Console\Events\AfterCommand
-* FightTheIce\Console\Events\ArtisanStarting
 * FightTheIce\Console\Events\BeforeCommand
+
 * FightTheIce\Console\Events\Error
 * FightTheIce\Console\Events\Terminate
+
+* FightTheIce\Console\Events\ArtisanStarting
 
 # Using events
 To gain access to the events from within your command call $this->getApplication()->getEvents();
@@ -215,4 +218,17 @@ $events->listen(FightTheIce\Console\Events\Output\Comment::class, function($even
 $console->resolve('App\Commands\MyCommand');
 
 $console->run();
+```
+
+You may also register "global" events for input and output (events):
+```php
+...
+$app->getEvents()->listen('FightTheIce\Console\Events\Output\*', function ($eventname, $event) {
+    ...
+});
+
+$app->getEvents()->listen('FightTheIce\Console\Events\Input\*', function ($eventname, $event) {
+    ...
+});
+...
 ```
