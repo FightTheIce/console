@@ -2,42 +2,56 @@
 
 namespace FightTheIce\Console\Events\Output;
 
-use Webmozart\Assert\Assert;
-
-class ErrorExit implements BasicOutputInterface
-{
+class ErrorExit implements BasicOutputInterface {
+    /**
+     * @var mixed
+     */
     protected $message;
+    /**
+     * @var mixed
+     */
     protected $exit;
+    /**
+     * @var mixed
+     */
     protected $command;
 
-    public function __construct($message, $exit, $command)
-    {
-        Assert::string($message);
-        Assert::boolean($exit);
-        Assert::isInstanceOf($command, 'Symfony\Component\Console\Command\Command');
-
+    /**
+     * @param $message
+     * @param $exit
+     * @param $command
+     */
+    public function __construct($message, $exit, $command) {
         $this->message = $message;
         $this->exit    = $exit;
         $this->command = $command;
     }
 
-    public function getMessage()
-    {
+    /**
+     * @return mixed
+     */
+    public function getMessage() {
         return $this->message;
     }
 
-    public function getCommand()
-    {
+    /**
+     * @return mixed
+     */
+    public function getCommand() {
         return $this->command;
     }
 
-    public function getExit()
-    {
+    /**
+     * @return mixed
+     */
+    public function getExit() {
         return $this->exit;
     }
 
-    public function willExit()
-    {
+    /**
+     * @return mixed
+     */
+    public function willExit() {
         return $this->getExit();
     }
 }

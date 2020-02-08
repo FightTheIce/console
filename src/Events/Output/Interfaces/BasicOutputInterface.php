@@ -2,8 +2,7 @@
 
 namespace FightTheIce\Console\Events\Output;
 
-interface BasicOutputInterface
-{
+interface BasicOutputInterface {
     public function getMessage();
 
     public function getCommand();

@@ -2,33 +2,55 @@
 
 namespace FightTheIce\Console\Events;
 
-class Error
-{
+class Error {
+    /**
+     * @var mixed
+     */
     public $event;
+    /**
+     * @var mixed
+     */
     protected $input;
+    /**
+     * @var mixed
+     */
     protected $output;
+    /**
+     * @var mixed
+     */
     protected $command;
 
-    public function __construct($event, $input, $output, $command)
-    {
+    /**
+     * @param $event
+     * @param $input
+     * @param $output
+     * @param $command
+     */
+    public function __construct($event, $input, $output, $command) {
         $this->event   = $event;
         $this->input   = $input;
         $this->output  = $output;
         $this->comment = $command;
     }
 
-    public function getInput()
-    {
+    /**
+     * @return mixed
+     */
+    public function getInput() {
         return $this->input;
     }
 
-    public function getOutput()
-    {
+    /**
+     * @return mixed
+     */
+    public function getOutput() {
         return $this->output;
     }
 
-    public function getCommand()
-    {
+    /**
+     * @return mixed
+     */
+    public function getCommand() {
         return $this->command;
     }
 }

@@ -2,33 +2,48 @@
 
 namespace FightTheIce\Console\Events\Output;
 
-use Webmozart\Assert\Assert;
-
-class Line implements BasicOutputInterface
-{
+class Line implements BasicOutputInterface {
+    /**
+     * @var mixed
+     */
     protected $message;
+    /**
+     * @var mixed
+     */
     protected $command;
+    /**
+     * @var mixed
+     */
     public $style;
+    /**
+     * @var mixed
+     */
     public $verbosity;
 
-    public function __construct($message, $style, $verbosity, $command)
-    {
-        Assert::string($message);
-        Assert::isInstanceOf($command, 'Symfony\Component\Console\Command\Command');
-
+    /**
+     * @param $message
+     * @param $style
+     * @param $verbosity
+     * @param $command
+     */
+    public function __construct($message, $style, $verbosity, $command) {
         $this->message   = $message;
         $this->style     = $style;
         $this->verbosity = $verbosity;
         $this->command   = $command;
     }
 
-    public function getMessage()
-    {
+    /**
+     * @return mixed
+     */
+    public function getMessage() {
         return $this->message;
     }
 
-    public function getCommand()
-    {
+    /**
+     * @return mixed
+     */
+    public function getCommand() {
         return $this->command;
     }
 }

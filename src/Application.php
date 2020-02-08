@@ -13,9 +13,14 @@ use Symfony\Component\Console\Event\ConsoleErrorEvent;
 use Symfony\Component\Console\Event\ConsoleTerminateEvent;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
-class Application extends I_Application
-{
-    protected $events     = null;
+class Application extends I_Application {
+    /**
+     * @var mixed
+     */
+    protected $events = null;
+    /**
+     * @var mixed
+     */
     protected $dispatcher = null;
 
     /**
@@ -27,8 +32,7 @@ class Application extends I_Application
      * @param string $name
      * @param string $version
      */
-    public function __construct($name = 'UNKNOWN', $version = 'UNKNOWN', Container $container = null, Dispatcher $events = null)
-    {
+    public function __construct($name = 'UNKNOWN', $version = 'UNKNOWN', Container $container = null, Dispatcher $events = null) {
         if (is_null($container)) {
             $container = new IlluminateContainer;
         }
@@ -54,8 +58,7 @@ class Application extends I_Application
         $this->setupSymfonyEvents();
     }
 
-    protected function setupSymfonyEvents()
-    {
+    protected function setupSymfonyEvents() {
         /*
         Typical Purposes: Handle exceptions thrown during the execution of a command.
 
@@ -101,13 +104,17 @@ class Application extends I_Application
         });
     }
 
-    public function getContainer()
-    {
+    /**
+     * @return mixed
+     */
+    public function getContainer() {
         return $this->getLaravel();
     }
 
-    public function getEvents()
-    {
+    /**
+     * @return mixed
+     */
+    public function getEvents() {
         return $this->events;
     }
 }

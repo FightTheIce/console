@@ -199,7 +199,7 @@ class Command extends I_Command {
         $confirm = parent::confirm($question, $default);
 
         if ($this->shouldUseEvents() == true) {
-            $this->getApplication()->getEvents()->dispatch(new Events\Output\Confirm($question, $default, $confirm, $this));
+            $this->getApplication()->getEvents()->dispatch(new Events\Input\Confirm($question, $default, $confirm, $this));
         }
 
         return $confirm;
@@ -216,7 +216,7 @@ class Command extends I_Command {
         $ask = parent::ask($question, $default);
 
         if ($this->shouldUseEvents() == true) {
-            $this->getApplication()->getEvents()->dispatch(new Events\Output\Ask($question, $default, $ask, $this));
+            $this->getApplication()->getEvents()->dispatch(new Events\Input\Ask($question, $default, $ask, $this));
         }
 
         return $ask;
@@ -234,7 +234,7 @@ class Command extends I_Command {
         $anticipate = parent::askWithCompletion($question, $choices, $default);
 
         if ($this->shouldUseEvents() == true) {
-            $this->getApplication()->getEvents()->dispatch(new Events\Output\Anticipate($question, $choices, $default, $anticipate, $this));
+            $this->getApplication()->getEvents()->dispatch(new Events\Input\Anticipate($question, $choices, $default, $anticipate, $this));
         }
 
         return $anticipate;
@@ -252,7 +252,7 @@ class Command extends I_Command {
         $askWithCompletion = parent::askWithCompletion($question, $choices, $default);
 
         if ($this->shouldUseEvents() == true) {
-            $this->getApplication()->getEvents()->dispatch(new Events\Output\AskWithCompletion($question, $choices, $default, $askWithCompletion, $this));
+            $this->getApplication()->getEvents()->dispatch(new Events\Input\AskWithCompletion($question, $choices, $default, $askWithCompletion, $this));
         }
 
         return $askWithCompletion;
@@ -269,7 +269,7 @@ class Command extends I_Command {
         $secret = parent::secret($question, $fallback);
 
         if ($this->shouldUseEvents() == true) {
-            $this->getApplication()->getEvents()->dispatch(new Events\Output\Secret($question, $fallback, $secret, $this));
+            $this->getApplication()->getEvents()->dispatch(new Events\Input\Secret($question, $fallback, $secret, $this));
         }
 
         return $secret;
@@ -289,7 +289,7 @@ class Command extends I_Command {
         $choice = parent::choice($question, $choices, $default, $attempts, $multiple);
 
         if ($this->shouldUseEvents() == true) {
-            $this->getApplication()->getEvents()->dispatch(new Events\Output\Choice($question, $choices, $default, $attempts, $multiple, $choice, $this));
+            $this->getApplication()->getEvents()->dispatch(new Events\Input\Choice($question, $choices, $default, $attempts, $multiple, $choice, $this));
         }
 
         return $choice;
