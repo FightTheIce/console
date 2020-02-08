@@ -13,6 +13,8 @@ class Hello extends FightTheIce\Console\Command {
         $this->text('UUID: [' . $this->getUuid() . ']');
         $this->text('DT: [' . $this->getDateTime() . ']');
         $this->text('Global UUID: [' . $this->getContainer()->make('console')->getUuid() . ']');
+        $this->text('CMD: [' . $this->getSignature() . ']');
+        print_r($this->getSignatureValues());
         /*
         $this->errorExit('ErrorExit', false);
         $this->title('Title');

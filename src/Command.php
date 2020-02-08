@@ -549,7 +549,7 @@ class Command extends I_Command {
     /**
      * @return mixed
      */
-    public function getCommandSignature() {
+    public function getSignatureValues() {
         $data = TextParser::parse($this->getSignature());
         if (isset($data['arguments'])) {
             foreach ($data['arguments'] as &$d) {
@@ -585,5 +585,12 @@ class Command extends I_Command {
      */
     public function getContainer() {
         return $this->getApplication()->getContainer();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSignature() {
+        return $this->signature;
     }
 }
