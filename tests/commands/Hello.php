@@ -10,7 +10,10 @@ class Hello extends FightTheIce\Console\Command {
      * @return int
      */
     public function handle() {
-
+        $this->text('UUID: [' . $this->getUuid() . ']');
+        $this->text('DT: [' . $this->getDateTime() . ']');
+        $this->text('Global UUID: [' . $this->getContainer()->make('console')->getUuid() . ']');
+        /*
         $this->errorExit('ErrorExit', false);
         $this->title('Title');
         $this->section('Section');
@@ -27,7 +30,7 @@ class Hello extends FightTheIce\Console\Command {
         $this->anticipate('Anticipate', array('Yes', 'No', 'Anticipate'), 'Anticipate');
         $this->askWithCompletion('Ask With Completion', array('Yes', 'No', 'AskWithCompletion'), 'AskWithCompletion');
         $this->secret('Secret', function () {
-            echo 'Fallback';
+        echo 'Fallback';
         });
         $this->choice('Choice', array('Choice1', 'Choice2', 'Choice3'), 0, 3, null);
         $this->table(array('Col1', 'Col2', 'Col3'), array(array('Col1' => 'Row1-Col1', 'Col2' => 'Row1-Col2', 'Col3' => 'Row1-Col3')));

@@ -11,9 +11,12 @@ foreach (glob('commands/*.php') as $file) {
 
 $app = new FightTheIce\Console\Application('Console App', 'Beta-1');
 
+/*
 $app->getEvents()->listen('FightTheIce\Console\Events\Output\*', function ($name, $event) {
-    echo $name . PHP_EOL;
+echo $name . PHP_EOL;
 });
+ */
+
 /*
 //before and after commands
 $app->getEvents()->listen(FightTheIce\Console\Events\BeforeCommand::class, function ($event) {

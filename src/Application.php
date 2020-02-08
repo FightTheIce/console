@@ -7,6 +7,7 @@ use Illuminate\Container\Container as IlluminateContainer;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Events\Dispatcher as IlluminateDispatcher;
+use Illuminate\Support\Str;
 use Symfony\Component\Console\Application as S_Application;
 use Symfony\Component\Console\ConsoleEvents;
 use Symfony\Component\Console\Event\ConsoleErrorEvent;
@@ -22,6 +23,11 @@ class Application extends I_Application {
      * @var mixed
      */
     protected $dispatcher = null;
+
+    /**
+     * @var string
+     */
+    protected $uuid = '';
 
     /**
      * __construct
@@ -56,6 +62,10 @@ class Application extends I_Application {
         $this->dispatcher = new EventDispatcher();
         $this->setDispatcher($this->dispatcher);
         $this->setupSymfonyEvents();
+
+        $this->uuid = Str::uuid();
+
+        $container->instance('console', $this);
     }
 
     protected function setupSymfonyEvents() {
@@ -116,5 +126,12 @@ class Application extends I_Application {
      */
     public function getEvents() {
         return $this->events;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUuid() {
+        return $this->uuid;
     }
 }

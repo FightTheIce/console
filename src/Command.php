@@ -6,6 +6,8 @@ use FightTheIce\Console\Events\AfterCommand;
 use FightTheIce\Console\Events\BeforeCommand;
 use Illuminate\Console\Command as I_Command;
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Str;
+use Symfony\Component\Console\Command\LockableTrait;
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
@@ -13,6 +15,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 
 class Command extends I_Command {
+    use LockableTrait;
     /**
      * @var mixed
      */
@@ -21,10 +24,41 @@ class Command extends I_Command {
      * @var mixed
      */
     protected $useEvents = true;
+
+    /**
+     * @var string
+     */
+    protected $helpText = '';
+
+    /**
+     * @var string
+     */
+    protected $uuid = '';
+
+    /**
+     * @var string
+     */
+    protected $executed_dt = '';
+
     /**
      * @var mixed
      */
-    private $definition;
+    protected $singleInstance = true;
+
+    /**
+     * Create a new console command instance.
+     *
+     * @return void
+     */
+    public function __construct() {
+        parent::__construct();
+        if (!empty($this->helpText)) {
+            $this->setHelp($this->helpText);
+        }
+
+        $this->uuid        = Str::uuid();
+        $this->executed_dt = date('Y-m-d H:i:s');
+    }
 
     /**
      * Write a string as error output.
@@ -485,5 +519,71 @@ class Command extends I_Command {
         }
 
         return $value;
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @param  \Symfony\Component\Console\Input\InputInterface  $input
+     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
+     * @return mixed
+     */
+    protected function execute(InputInterface $input, OutputInterface $output) {
+        if ($this->singleInstance == true) {
+            if (!$this->lock()) {
+                $output->writeln('The command is already running in another process.');
+
+                return 0;
+            }
+        }
+
+        $return = parent::execute($input, $output);
+
+        if ($this->singleInstance == true) {
+            $this->release();
+        }
+
+        return $return;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCommandSignature() {
+        $data = TextParser::parse($this->getSignature());
+        if (isset($data['arguments'])) {
+            foreach ($data['arguments'] as &$d) {
+                $d['value'] = $this->argument($d['argument']);
+            }
+        }
+
+        if (isset($data['options'])) {
+            foreach ($data['options'] as &$d) {
+                $d['value'] = $this->option($d['option']);
+            }
+        }
+
+        return $data;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUuid() {
+        return $this->uuid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateTime() {
+        return $this->executed_dt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getContainer() {
+        return $this->getApplication()->getContainer();
     }
 }
