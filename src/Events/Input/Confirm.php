@@ -12,7 +12,7 @@ class Confirm implements AdvancedInputInterface, BasicOutputInterface {
     /**
      * @var mixed
      */
-    public $default;
+    protected $default;
     /**
      * @var mixed
      */
@@ -33,6 +33,20 @@ class Confirm implements AdvancedInputInterface, BasicOutputInterface {
         $this->default  = $default;
         $this->answer   = $answer;
         $this->command  = $command;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestion() {
+        return $this->question;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDefault() {
+        return $this->default;
     }
 
     /**

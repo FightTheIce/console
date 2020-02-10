@@ -23,19 +23,27 @@ class Hello extends FightTheIce\Console\Command {
     /**
      * @var string
      */
-    protected $signature = 'hello {type? : What type should we run?}';
+    protected $signature = 'hello {name? : Hoomans Name}';
 
     /**
      * @return int
      */
     public function handle() {
-        $this->text('UUID: [' . $this->getUuid() . ']');
-        $this->text('DT: [' . $this->getDateTime() . ']');
-        $this->text('Global UUID: [' . $this->getContainer()->make('console')->getUuid() . ']');
-        $this->text('CMD: [' . $this->getSignature() . ']');
+        throw new \ErrorException('ERROR');
+        if (file_exists('somelog.txt')) {
+            $data = file_get_contents('somelog.txt');
+            $data = json_decode($data);
+            print_r($data);
+            exit;
+        }
+        //$this->comment('UUID: [' . $this->getUuid() . ']');
 
-        $this->call('say', array('name' => 'William'));
-        //$this->callSilent('hello');
+        $name = $this->argument('name');
+        if (empty($name)) {
+            $name = $this->ask('What is your name', 'David');
+        }
+
+        $this->comment($name);
 
         return 0;
     }

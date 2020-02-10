@@ -14,7 +14,7 @@ class Info implements BasicOutputInterface {
     /**
      * @var mixed
      */
-    public $verbosity;
+    protected $verbosity;
 
     /**
      * @param $message
@@ -32,6 +32,13 @@ class Info implements BasicOutputInterface {
      */
     public function getMessage() {
         return $this->message;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVerbosity() {
+        return $this->verbosity;
     }
 
     /**

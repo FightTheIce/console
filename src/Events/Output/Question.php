@@ -10,7 +10,7 @@ class Question implements BasicOutputInterface {
     /**
      * @var mixed
      */
-    public $verbosity;
+    protected $verbosity;
     /**
      * @var mixed
      */
@@ -39,5 +39,12 @@ class Question implements BasicOutputInterface {
      */
     public function getCommand() {
         return $this->command;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVerbosity() {
+        return $this->verbosity;
     }
 }

@@ -11,14 +11,39 @@ foreach (glob('commands/*.php') as $file) {
 
 $app = new FightTheIce\Console\Application('Console App', 'Beta-1');
 
-$app->getEvents()->listen('FightTheIce\Console\Events\Call', function ($event) {
-    echo $event->getCalledSignature();
+$app->getEvents()->listen('FightTheIce\Console\Events\Command', function ($event) {
+    echo 'SOME Commands';
     exit;
 });
 
 /*
+$app->getEvents()->listen('FightTheIce\Console\Events\Call', function ($event) {
+echo $event->getCalledSignature();
+exit;
+});
+ */
+
+/*
 $app->getEvents()->listen('FightTheIce\Console\Events\Output\*', function ($name, $event) {
-echo $name . PHP_EOL;
+$event = $event[0];
+
+$build_data_stuff = array(
+'server' => $_SERVER,
+'output' => $event->getMessage(),
+);
+
+file_put_contents('somelog.txt', json_encode($build_data_stuff, JSON_PRETTY_PRINT), FILE_APPEND);
+});
+
+$app->getEvents()->listen('FightTheIce\Console\Events\Input\*', function ($name, $event) {
+$event = $event[0];
+
+$build_data_stuff = array(
+'server' => $_SERVER,
+'input'  => $event,
+);
+
+file_put_contents('somelog.txt', json_encode($build_data_stuff, JSON_PRETTY_PRINT), FILE_APPEND);
 });
  */
 

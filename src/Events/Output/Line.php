@@ -14,11 +14,11 @@ class Line implements BasicOutputInterface {
     /**
      * @var mixed
      */
-    public $style;
+    protected $style;
     /**
      * @var mixed
      */
-    public $verbosity;
+    protected $verbosity;
 
     /**
      * @param $message
@@ -45,5 +45,19 @@ class Line implements BasicOutputInterface {
      */
     public function getCommand() {
         return $this->command;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVerbosity() {
+        return $this->verbosity;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStyle() {
+        return $this->style;
     }
 }

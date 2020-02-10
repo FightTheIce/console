@@ -10,7 +10,7 @@ class Error implements BasicOutputInterface {
     /**
      * @var mixed
      */
-    public $verbosity;
+    protected $verbosity;
     /**
      * @var mixed
      */
@@ -33,6 +33,13 @@ class Error implements BasicOutputInterface {
      */
     public function getMessage() {
         return $this->message;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVerbosity() {
+        return $this->verbosity;
     }
 
     /**

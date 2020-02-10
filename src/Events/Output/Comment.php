@@ -10,7 +10,7 @@ class Comment implements BasicOutputInterface {
     /**
      * @var mixed
      */
-    public $verbosity;
+    protected $verbosity;
     /**
      * @var mixed
      */
@@ -32,6 +32,13 @@ class Comment implements BasicOutputInterface {
      */
     public function getMessage() {
         return $this->message;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVerbosity() {
+        return $this->verbosity;
     }
 
     /**

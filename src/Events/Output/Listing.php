@@ -6,11 +6,11 @@ class Listing {
     /**
      * @var mixed
      */
-    public $elements;
+    protected $elements;
     /**
      * @var mixed
      */
-    public $command;
+    protected $command;
 
     /**
      * @param $elements

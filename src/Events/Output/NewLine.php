@@ -6,11 +6,11 @@ class NewLine {
     /**
      * @var mixed
      */
-    public $count;
+    protected $count;
     /**
      * @var mixed
      */
-    public $command;
+    protected $command;
 
     /**
      * @param $count

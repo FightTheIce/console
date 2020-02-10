@@ -6,19 +6,19 @@ class Table {
     /**
      * @var mixed
      */
-    public $headers;
+    protected $headers;
     /**
      * @var mixed
      */
-    public $rows;
+    protected $rows;
     /**
      * @var mixed
      */
-    public $style;
+    protected $style;
     /**
      * @var mixed
      */
-    public $command;
+    protected $command;
 
     /**
      * @param $header

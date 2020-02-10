@@ -8,19 +8,19 @@ class Secret implements AdvancedInputInterface, BasicOutputInterface {
     /**
      * @var mixed
      */
-    public $question;
+    protected $question;
     /**
      * @var mixed
      */
-    public $fallback;
+    protected $fallback;
     /**
      * @var mixed
      */
-    public $answer;
+    protected $answer;
     /**
      * @var mixed
      */
-    public $command;
+    protected $command;
 
     /**
      * @param $question
@@ -33,6 +33,20 @@ class Secret implements AdvancedInputInterface, BasicOutputInterface {
         $this->fallback = $fallback;
         $this->answer   = $answer;
         $this->command  = $command;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestion() {
+        return $this->question;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFallback() {
+        return $this->fallback;
     }
 
     /**
