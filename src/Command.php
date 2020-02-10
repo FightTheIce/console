@@ -593,4 +593,38 @@ class Command extends I_Command {
     public function getSignature() {
         return $this->signature;
     }
+
+    /**
+     * Call another console command.
+     *
+     * @param  string  $command
+     * @param  array   $arguments
+     * @return int
+     */
+    public function call($command, array $arguments = []) {
+        $return = parent::call($command, $arguments);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\Call($this->getSignature(), array_merge($this->getArguments(), $this->getOptions()), $command, $arguments, $return));
+        }
+
+        return $return;
+    }
+
+    /**
+     * Call another console command silently.
+     *
+     * @param  string  $command
+     * @param  array   $arguments
+     * @return int
+     */
+    public function callSilent($command, array $arguments = []) {
+        $return = parent::callSilent($command, $arguments);
+
+        if ($this->shouldUseEvents() == true) {
+            $this->getApplication()->getEvents()->dispatch(new Events\CallSilent($this->getSignature(), array_merge($this->getArguments(), $this->getOptions()), $command, $arguments, $return));
+        }
+
+        return $return;
+    }
 }

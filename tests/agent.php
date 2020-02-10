@@ -11,6 +11,11 @@ foreach (glob('commands/*.php') as $file) {
 
 $app = new FightTheIce\Console\Application('Console App', 'Beta-1');
 
+$app->getEvents()->listen('FightTheIce\Console\Events\Call', function ($event) {
+    echo $event->getCalledSignature();
+    exit;
+});
+
 /*
 $app->getEvents()->listen('FightTheIce\Console\Events\Output\*', function ($name, $event) {
 echo $name . PHP_EOL;

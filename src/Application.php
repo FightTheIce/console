@@ -39,33 +39,39 @@ class Application extends I_Application {
      * @param string $version
      */
     public function __construct($name = 'UNKNOWN', $version = 'UNKNOWN', Container $container = null, Dispatcher $events = null) {
+        //if no container was given lets create one
         if (is_null($container)) {
             $container = new IlluminateContainer;
         }
 
+        //if no events dispatcher was given lets create one
         if (is_null($events)) {
             $events = new IlluminateDispatcher($container);
         }
 
-        $this->events = $events;
-
-        S_Application::__construct($name, $version);
+        // setup the Laravel constructors
+        parent::__construct($container, $events, $version);
+        parent::setName($name);
 
         $this->laravel = $container;
+        $this->events  = $events;
         $this->setAutoExit(false);
         $this->setCatchExceptions(false);
 
-        $events->dispatch(new Events\ArtisanStarting($this));
+        $this->events->dispatch(new Events\ArtisanStarting($this));
 
         $this->bootstrap();
 
+        $container->instance('console', $this); //add the console app to the container
+
+        // setup the Symfony constructor
+        S_Application::__construct($name, $version);
         $this->dispatcher = new EventDispatcher();
         $this->setDispatcher($this->dispatcher);
+        S_Application::setDispatcher($this->dispatcher);
         $this->setupSymfonyEvents();
 
         $this->uuid = Str::uuid();
-
-        $container->instance('console', $this);
     }
 
     protected function setupSymfonyEvents() {
