@@ -13,12 +13,12 @@
         "classmap": ["src"]
     },
     "require": {
-        "illuminate/console": "^6.14",
-        "illuminate/container": "^6.14",
-        "illuminate/events": "^6.14",
         "webmozart/assert": "^1.6",
-        "symfony/event-dispatcher": "4.4.0",
         "ramsey/uuid": "^3.9",
-        "symfony/lock": "^5.0"
+        "illuminate/container": "^7.14",
+        "illuminate/events": "^7.14",
+        "illuminate/console": "^7.14",
+        "symfony/lock": "^5.1",
+        "symfony/event-dispatcher": "^5.1"
     }
 }
